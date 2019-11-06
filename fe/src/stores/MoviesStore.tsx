@@ -3,23 +3,21 @@ import { action, runInAction } from 'mobx';
 import { ApiStore } from './ApiStore';
 import { stores } from './store';
 
-
 export interface Movie {
-  username: string;
-  trakt: {
-    id: string;
-    status: boolean;
-    access_token: string;
-    vip: boolean;
+  title: string;
+  year: number;
+  ids: {
+    trakt: number;
+    slug: string;
+    imdb: string;
+    tmdb: number;
   };
 }
 
 type Movies = Movie[];
 
 class MoviesStore extends ApiStore<Movies> {
-
   endpoint = 'movie';
-
 
   @action
   async fetchMovies() {

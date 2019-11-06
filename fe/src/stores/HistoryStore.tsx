@@ -8,7 +8,6 @@ import { API } from '../routes';
 export interface History {
   watched_at: string;
   movie: Movie;
-
 }
 
 type Histories = History[];

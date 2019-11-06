@@ -11,10 +11,29 @@ router.get('/', jwt, async function(req, res) {
   const { user } = req;
   const match = {};
   const { query } = req;
-  const { page, pageSize } = query;
+  const { page, pageSize, orderBy, orderDirection } = query;
+  const order = orderDirection === 'asc' ? 1 : -1;
 
-  if (query.search) {
-    match.title = query.search;
+  const aggregateSet = [
+    {
+      $lookup: {
+        from: 'movies',
+        localField: 'movie',
+        foreignField: '_id',
+        as: 'movie'
+      }
+    },
+    { $match: { 'movie.title': new RegExp(match.title, '') } },
+    { $unwind: '$movie' }
+  ];
+
+  if (orderBy) {
+    const orderByObj = JSON.parse(orderBy);
+    aggregateSet.push({
+      $sort: {
+        [orderByObj.field]: order
+      }
+    });
   }
 
   try {
@@ -27,30 +46,33 @@ router.get('/', jwt, async function(req, res) {
 				.limit(parseInt(pageSize || 1))
         .skip(parseInt(page * pageSize))
         .sort({ watched_at: -1 })   */
-
-      HistoryModel.aggregate([
-        {
-          $lookup: {
-            from: 'movies',
-            localField: 'movie',
-            foreignField: '_id',
-            as: 'movie'
+      HistoryModel.aggregate(aggregateSet)
+        .facet({
+          results: [
+            { $skip: parseInt(page * pageSize) },
+            { $limit: parseInt(pageSize) }
+          ],
+          count: [
+            {
+              $count: 'count'
+            }
+          ]
+        })
+        .addFields({
+          count: {
+            $ifNull: [{ $arrayElemAt: ['$count.count', 0] }, 0]
           }
-        },
-        { $match: { 'movie.title': new RegExp(match.title, "") } },
-				{ $skip: parseInt(page * pageSize) },
-				{ $limit: parseInt(pageSize) },
-				{ $unwind : "$movie" }
-      ])
-
-
+        })
     );
+
     if (errD) {
       console.error(errD);
       res.status(500).send();
     }
-    return res.json(allData);
+
+    return res.json(allData[0]);
   } catch (error) {
+    console.error('historyRoutes', error);
     res.status(500).send();
   }
 });
@@ -98,12 +120,7 @@ router.get('/sync', jwt, async function(req, res) {
         //return savedHistory;
       });
 
-      Promise.all(newData).then(async resp => {
-        const [errD, allData] = await to(
-          HistoryModel.find({ user: user._id }).sort({ watched_at: -1 })
-        );
-        return res.json(allData);
-      });
+      res.response(200);
     }
   }
 

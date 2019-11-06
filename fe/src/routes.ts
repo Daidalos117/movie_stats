@@ -16,7 +16,9 @@ const API = {
 const FE = {
   index: "/",
   home: "/home",
-
+  movie: {
+    detail: "movie/detail/",
+  },
   auth: {
     callback: '/loginCallback'
   }
