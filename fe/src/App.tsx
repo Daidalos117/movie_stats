@@ -12,6 +12,7 @@ import { StylesProvider } from '@material-ui/core/styles';
 import LoginPage from 'components/LoginPage/LoginPage';
 import { useStores } from './stores/store';
 import LoggedApp from 'components/App/App';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 interface Match {
   token: string;
@@ -39,6 +40,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <StylesProvider injectFirst>
+        <CssBaseline />
         <div className="App">
           <Switch>
             <Route exact path={FE.index}>

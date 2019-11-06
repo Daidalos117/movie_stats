@@ -1,7 +1,8 @@
-import { observable, action, runInAction } from 'mobx';
+import { observable, action, runInAction, observe } from 'mobx';
 import { baseApiUrl } from 'routes';
 import { AxiosError } from 'axios';
 import api from '../api/backend';
+import { AxiosRequestConfig } from 'axios';
 
 export class ApiStore<T> {
   localStorageKey: string = 'oath_token';
@@ -12,13 +13,27 @@ export class ApiStore<T> {
 
   @observable error: null | AxiosError = null;
 
-  @observable _token: string | null  = localStorage.getItem(this.localStorageKey);
+  @observable _token: string | null = null;
 
+  constructor() {
+    observe(this, change => {
+      if (change.name === '_token' && change.type === 'update') {
+        // set api token auth
+        api.defaults.headers['Authorization'] = `Bearer ${change.newValue}`;
+      }
+    });
+
+    const localToken = localStorage.getItem(this.localStorageKey);
+    if (localToken) {
+      this._token = localToken;
+    }
+  }
 
   set token(token) {
-    if(token) {
+    if (token) {
       localStorage.setItem(this.localStorageKey, token);
     }
+
     this._token = token;
   }
 
@@ -28,12 +43,10 @@ export class ApiStore<T> {
   }
 
   @action
-  async fetchData<T>(endpoint: string) {
+  async fetchData<T>(endpoint: string, params: any = {}) {
     try {
       const resp = await api.get<T>(endpoint, {
-        headers: {
-          Authorization: `Bearer ${this.token}`
-        }
+        params
       });
 
       return runInAction(() => {

@@ -20,7 +20,10 @@ class HistoryStore extends ApiStore<Histories> {
   fetchHistory = async () => {
     const { apiStore } = stores;
 
-    const response = await apiStore.fetchData<Histories>(this.endpoint);
+    const response = await apiStore.fetchData<Histories>(this.endpoint, {
+      pageSize: 1,
+      page: 1
+    });
 
     runInAction(() => {
       if (typeof response !== 'boolean') {

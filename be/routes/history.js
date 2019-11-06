@@ -9,10 +9,50 @@ const to = require('await-to-js').default;
 
 router.get('/', jwt, async function(req, res) {
   const { user } = req;
-  const [errD, allData] = await to(
-    HistoryModel.find({ user: user._id }).sort({ watched_at: 1 })
-  );
-  return res.json(allData);
+  const match = {};
+  const { query } = req;
+  const { page, pageSize } = query;
+
+  if (query.search) {
+    match.title = query.search;
+  }
+
+  try {
+    const [errD, allData] = await to(
+      /*      HistoryModel.find({ user: user._id })
+        .populate({
+          path: 'movie',
+          match
+        })
+				.limit(parseInt(pageSize || 1))
+        .skip(parseInt(page * pageSize))
+        .sort({ watched_at: -1 })   */
+
+      HistoryModel.aggregate([
+        {
+          $lookup: {
+            from: 'movies',
+            localField: 'movie',
+            foreignField: '_id',
+            as: 'movie'
+          }
+        },
+        { $match: { 'movie.title': new RegExp(match.title, "") } },
+				{ $skip: parseInt(page * pageSize) },
+				{ $limit: parseInt(pageSize) },
+				{ $unwind : "$movie" }
+      ])
+
+
+    );
+    if (errD) {
+      console.error(errD);
+      res.status(500).send();
+    }
+    return res.json(allData);
+  } catch (error) {
+    res.status(500).send();
+  }
 });
 
 router.get('/sync', jwt, async function(req, res) {
@@ -60,7 +100,7 @@ router.get('/sync', jwt, async function(req, res) {
 
       Promise.all(newData).then(async resp => {
         const [errD, allData] = await to(
-          HistoryModel.find({ user: user._id }).sort({ watched_at: 1 })
+          HistoryModel.find({ user: user._id }).sort({ watched_at: -1 })
         );
         return res.json(allData);
       });
