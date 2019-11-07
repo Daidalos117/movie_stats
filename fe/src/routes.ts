@@ -3,13 +3,15 @@ const baseFeUrl = process.env.REACT_APP_FE_URL || 'https://localhost:3000';
 
 const API = {
   auth: {
-    login: 'auth/',
+    login: 'auth',
   },
   movie: {
-
+    index: 'movie',
+    detail: 'detail'
   },
   history: {
-    index: 'history'
+    index: 'history',
+    sync: 'sync'
   }
 }
 
@@ -17,7 +19,8 @@ const FE = {
   index: "/",
   home: "/home",
   movie: {
-    detail: "movie/detail/",
+    index: 'movie',
+    detail: "detail",
   },
   auth: {
     callback: '/loginCallback'

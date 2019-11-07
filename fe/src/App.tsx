@@ -11,7 +11,8 @@ import { FE } from './routes';
 import { StylesProvider } from '@material-ui/core/styles';
 import LoginPage from 'components/LoginPage/LoginPage';
 import { useStores } from './stores/store';
-import LoggedApp from 'components/App/App';
+import LoggedApp from 'pages/History/History';
+import HistoryDetail from 'pages/History/Detail';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 interface Match {
@@ -43,9 +44,20 @@ const App: React.FC = () => {
         <CssBaseline />
         <div className="App">
           <Switch>
+
             <Route exact path={FE.index}>
               {!user ? <LoginPage /> : <LoggedApp />}
             </Route>
+
+            <Route exact path={`/${FE.movie.index}/:id`}>
+              <HistoryDetail/>
+            </Route>
+
+
+            <Route exact path={`/${FE.movie.index}`}>
+
+            </Route>
+
             <Route
               exact
               path={`${FE.auth.callback}/:token`}

@@ -17,35 +17,47 @@ router.get('/', jwt, async function(req, res) {
   const aggregateSet = [
     {
       $lookup: {
+        // join
         from: 'movies',
         localField: 'movie',
         foreignField: '_id',
         as: 'movie'
       }
     },
-    { $match: { 'movie.title': new RegExp(match.title, '') } },
-    { $unwind: '$movie' }
+    { $match: { 'movie.title': new RegExp(match.title, '') } }, // match, search
+    { $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
+    {
+      $project: {
+        // select only some fields
+        _id: 1,
+        watched_at: 1,
+        movie: 1
+      }
+    }
   ];
 
+  let orderSet = {};
   if (orderBy) {
-    const orderByObj = JSON.parse(orderBy);
-    aggregateSet.push({
+    const orderByParsed = JSON.parse(orderBy);
+    orderSet = {
+      ...orderSet,
       $sort: {
         [orderByObj.field]: order
       }
-    });
+    };
+  } else {
+    orderSet = {
+      ...orderSet,
+      $sort: {
+        watched_at: -1
+      }
+    };
   }
+
+  aggregateSet.push(orderSet);
 
   try {
     const [errD, allData] = await to(
-      /*      HistoryModel.find({ user: user._id })
-        .populate({
-          path: 'movie',
-          match
-        })
-				.limit(parseInt(pageSize || 1))
-        .skip(parseInt(page * pageSize))
-        .sort({ watched_at: -1 })   */
       HistoryModel.aggregate(aggregateSet)
         .facet({
           results: [
@@ -91,7 +103,7 @@ router.get('/sync', jwt, async function(req, res) {
       });
     } catch (e) {
       if (e) {
-        res.response(400, e);
+        res.send(400, e);
         return;
       }
     }
@@ -100,6 +112,11 @@ router.get('/sync', jwt, async function(req, res) {
       const { data } = response;
       //if(!data.length) res.response(204);
       const newData = data.map(async history => {
+        let [errH, foundHistory] = await to(
+          HistoryModel.find({ watched_at: history.watched_at })
+        );
+
+        if (foundHistory && foundHistory.length > 0) return;
         const { movie, ...restHistory } = history;
         let [errM, foundMovie] = await to(MovieModel.find({ ids: movie.ids }));
         let movieId = foundMovie.length && foundMovie[0]._id;
@@ -117,10 +134,11 @@ router.get('/sync', jwt, async function(req, res) {
         });
 
         let [errNH, savedHistory] = await to(newHistory.save());
-        //return savedHistory;
+        return savedHistory;
       });
-
-      res.response(200);
+      Promise.all(newData).then(() => {
+        res.send(200, newData);
+      });
     }
   }
 
@@ -129,7 +147,6 @@ router.get('/sync', jwt, async function(req, res) {
   );
 
   const params = {};
-  console.log(historyFind);
 
   if (historyFind) {
     params.start_at = historyFind.watched_at;

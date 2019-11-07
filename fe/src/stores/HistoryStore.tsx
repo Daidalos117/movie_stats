@@ -1,9 +1,11 @@
 // src/stores/theme-store.tsx
-import { action, runInAction } from 'mobx';
+import { action, runInAction, observable } from 'mobx';
 import { ApiStore } from './ApiStore';
 import { stores } from './store';
 import { Movie } from './MoviesStore';
 import { API } from '../routes';
+import {MaterialTableProps} from "material-table";
+import {RefObject} from "react";
 
 export interface History {
   watched_at: string;
@@ -14,6 +16,8 @@ type Histories = History[];
 
 class HistoryStore extends ApiStore<Histories> {
   endpoint = API.history.index;
+
+  @observable tableRef: RefObject<any> | null = null;
 
   @action
   fetchHistory = async () => {
@@ -30,6 +34,18 @@ class HistoryStore extends ApiStore<Histories> {
       }
     });
   }
+
+  syncData = async () => {
+    const { apiStore } = stores;
+
+    const response = await apiStore.fetchData<Histories>(`${this.endpoint}/${API.history.sync}`);
+
+    return runInAction(() => {
+      return response;
+    });
+  }
+
+
 }
 
 export { HistoryStore };

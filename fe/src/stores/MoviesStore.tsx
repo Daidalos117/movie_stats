@@ -4,6 +4,7 @@ import { ApiStore } from './ApiStore';
 import { stores } from './store';
 
 export interface Movie {
+  _id: string;
   title: string;
   year: number;
   ids: {
