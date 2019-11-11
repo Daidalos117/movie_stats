@@ -4,22 +4,16 @@ import Grid from '@material-ui/core/Grid';
 import backend from 'api/backend';
 import useSWR from 'swr';
 import { API } from '../../routes';
-import {useParams} from "react-router";
+import { useParams } from 'react-router';
 
 interface Props {}
 
 const Detail: React.FC<Props> = props => {
   let { id } = useParams();
-  const { data, error } = useSWR(
-    `${API.movie.index}/${API.movie.detail}`,
-    (url: string) => {
-      backend(url, {
-        params: {
-          id
-        }
-      })
-    }
+  const { data, error } = useSWR(`${API.movie.index}/${id}`, (url: string) =>
+    backend(url, {})
   );
+  console.log(data);
 
   return (
     <Layout>

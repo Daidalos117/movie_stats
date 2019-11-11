@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently --kill-others \"npm run start --prefix ./fe\" \"npm run dev --prefix ./be\"",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "build": "npm run build --prefix ./fe && npm run start --prefix ./be"
   },
   "devDependencies": {
     "@types/mobx-devtools-mst": "^0.9.0",
     "concurrently": "^4.1.2",
-    "mobx-devtools-mst": "^0.9.21"
+    "mobx-devtools-mst": "^0.9.21",
   },
   "keywords": [],
   "author": "",

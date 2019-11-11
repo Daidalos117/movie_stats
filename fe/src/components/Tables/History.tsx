@@ -26,6 +26,7 @@ const History: React.FC = () => {
       <Material
         title="Movies History"
         tableRef={historyStore.tableRef}
+
         columns={[
           {
             title: 'Movie',

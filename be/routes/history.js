@@ -11,7 +11,7 @@ router.get('/', jwt, async function(req, res) {
   const { user } = req;
   const match = {};
   const { query } = req;
-  const { page, pageSize, orderBy, orderDirection } = query;
+  const { page, pageSize, orderBy, orderDirection, search } = query;
   const order = orderDirection === 'asc' ? 1 : -1;
 
   const aggregateSet = [
@@ -24,7 +24,7 @@ router.get('/', jwt, async function(req, res) {
         as: 'movie'
       }
     },
-    { $match: { 'movie.title': new RegExp(match.title, '') } }, // match, search
+		{ $match: { 'movie.title': new RegExp(search, 'i') } }, // match, search
     { $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
     {
       $project: {

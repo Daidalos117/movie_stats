@@ -37,7 +37,7 @@ const App: React.FC = () => {
     props.history.push('/');
     return <div />;
   };
-
+console.log('hey')
   return (
     <Router>
       <StylesProvider injectFirst>
@@ -53,10 +53,6 @@ const App: React.FC = () => {
               <HistoryDetail/>
             </Route>
 
-
-            <Route exact path={`/${FE.movie.index}`}>
-
-            </Route>
 
             <Route
               exact

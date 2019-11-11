@@ -7,7 +7,6 @@ const API = {
   },
   movie: {
     index: 'movie',
-    detail: 'detail'
   },
   history: {
     index: 'history',

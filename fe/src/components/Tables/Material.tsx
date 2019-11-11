@@ -1,6 +1,6 @@
 import React from 'react';
 import { forwardRef } from 'react';
-import MaterialTable, {Icons, MaterialTableProps} from 'material-table';
+import MaterialTable, { Icons, MaterialTableProps } from 'material-table';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Check from '@material-ui/icons/Check';
@@ -41,8 +41,15 @@ const tableIcons: Icons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const History: React.FC<MaterialTableProps<any>> = (props) => (
-  <MaterialTable icons={tableIcons} {...props} />
+const History: React.FC<MaterialTableProps<any>> = ({options, ...restProps}) => (
+  <MaterialTable
+    options={{
+      ...options,
+      debounceInterval: 500
+    }}
+    icons={tableIcons}
+    {...restProps}
+  />
 );
 
 export default History;
