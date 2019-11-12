@@ -3,7 +3,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  RouteComponentProps
+  RouteComponentProps,
+  RouteProps,
+  Redirect,
+  useHistory
 } from 'react-router-dom';
 
 import { observer } from 'mobx-react';
@@ -11,7 +14,7 @@ import { FE } from './routes';
 import { StylesProvider } from '@material-ui/core/styles';
 import LoginPage from 'components/LoginPage/LoginPage';
 import { useStores } from './stores/store';
-import LoggedApp from 'pages/History/History';
+import History from 'pages/History/History';
 import HistoryDetail from 'pages/History/Detail';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -25,6 +28,7 @@ const App: React.FC = () => {
   const { user } = userStore;
   const { token } = apiStore;
 
+
   useEffect(() => {
     if (token) {
       userStore.fetchUser();
@@ -34,25 +38,46 @@ const App: React.FC = () => {
   const loginCallback = (props: RouteComponentProps<Match>) => {
     const { token } = props.match.params;
     apiStore.token = token;
-    props.history.push('/');
     return <div />;
   };
-console.log('hey')
+
+  function PrivateRoute({ children, ...rest }: RouteProps) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          user ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: '/login',
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
+
   return (
     <Router>
       <StylesProvider injectFirst>
         <CssBaseline />
         <div className="App">
           <Switch>
-
-            <Route exact path={FE.index}>
-              {!user ? <LoginPage /> : <LoggedApp />}
+            <Route path="/login">
+              <LoginPage />
             </Route>
 
-            <Route exact path={`/${FE.movie.index}/:id`}>
-              <HistoryDetail/>
-            </Route>
+            <PrivateRoute exact path={FE.index}>
+              <History />
+            </PrivateRoute>
 
+            <PrivateRoute exact path={`/${FE.movie.index}/:id`}>
+              <HistoryDetail />
+            </PrivateRoute>
 
             <Route
               exact
