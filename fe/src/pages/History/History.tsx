@@ -27,6 +27,7 @@ const History: React.FC = (props) => {
 
   return (
     <Layout>
+      <Menu />
       <Box mt={8} textAlign="right">
         <Button
           color="primary"

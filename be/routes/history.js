@@ -24,7 +24,7 @@ router.get('/', jwt, async function(req, res) {
         as: 'movie'
       }
     },
-    { $match: { 'movie.title': new RegExp(search, 'i'), user: user._id } }, // match, search
+		{ $match: { 'movie.title': new RegExp(search, 'i') } }, // match, search
     { $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
     {
       $project: {
