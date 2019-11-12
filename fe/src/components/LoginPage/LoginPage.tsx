@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { traktLogin } from '../../routes';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import {useHistory} from "react-router";
 
 const Wrapper = styled('div')`
   width: 100vw;
@@ -20,7 +21,14 @@ interface Props {}
 
 const LoginPage: React.FC<Props> = props => {
   const { userStore } = useStores();
-  const { logging } = userStore;
+  const { logging, user } = userStore;
+  const history = useHistory();
+
+  useEffect(() => {
+    if(user) {
+      history.push('/');
+    }
+  }, [user])
 
   return (
     <Wrapper>

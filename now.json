@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "be/app.js", "use": "@now/node" },
+    {
+      "src": "fe/package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "./be/app.js" },
+    { "src": "/(.*)", "dest": "./fe/build/$1" }
+  ]
+}
