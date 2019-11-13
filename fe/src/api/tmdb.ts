@@ -1,9 +1,8 @@
-import { baseApiUrl } from 'routes';
 import axios from 'axios';
-import api from './backend';
+import { tmdb } from 'routes';
 
 const instance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
+  baseURL: tmdb.baseUrl,
   timeout: 1000,
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_TMDB_TOKEN}`,
@@ -13,11 +12,9 @@ const instance = axios.create({
 
 instance.defaults.timeout = 10000;
 
-export const fetcher = (url: string, config = {}) => {
-  return instance(url, { ...config }).then(response => {
-    // returning the data here allows the caller to get it through another .then(...)
+export const fetcher = (url: string, config = {}) =>
+  instance(url, { ...config }).then(response => {
     return response.data;
   });
-};
 
 export default instance;

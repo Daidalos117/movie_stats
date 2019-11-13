@@ -1,11 +1,16 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { traktLogin } from '../../routes';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {useHistory} from "react-router";
+import { useHistory } from 'react-router';
+import { localStorageRedirectKey } from 'App';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 const Wrapper = styled('div')`
   width: 100vw;
@@ -17,6 +22,12 @@ const Wrapper = styled('div')`
   background-size: contain;
 `;
 
+const StyledCardContent = styled(CardContent)`
+  padding: 1rem 2rem;
+  background-color: black;
+  color: white;
+`;
+
 interface Props {}
 
 const LoginPage: React.FC<Props> = props => {
@@ -25,32 +36,45 @@ const LoginPage: React.FC<Props> = props => {
   const history = useHistory();
 
   useEffect(() => {
-    if(user) {
-      history.push('/');
+    if (user) {
+      const redirectAfter = localStorage.getItem(localStorageRedirectKey);
+      history.push(redirectAfter || '/');
+      if (redirectAfter) {
+        localStorage.removeItem(localStorageRedirectKey);
+      }
     }
-  }, [user])
+  }, [user]);
 
   return (
     <Wrapper>
-      <Button
-        href={traktLogin}
-        variant="outlined"
-        size="large"
-        color="secondary"
-        onClick={() => {
-
-          userStore.logging = true;
-        }}
-      >
-        {logging ? (
-          <>
-            <CircularProgress size={16} />
-            logging
-          </>
-        ) : (
-          "Login"
-        )}
-      </Button>
+      <Card>
+        <StyledCardContent>
+          <Typography variant="h4" gutterBottom>
+            Trakt.tv
+          </Typography>
+          <Box mt={2}>
+            <Button
+              href={traktLogin}
+              variant="outlined"
+              size="large"
+              color="secondary"
+              fullWidth
+              onClick={() => {
+                userStore.logging = true;
+              }}
+            >
+              {logging ? (
+                <>
+                  <CircularProgress size={16} />
+                  logging
+                </>
+              ) : (
+                'Login'
+              )}
+            </Button>
+          </Box>
+        </StyledCardContent>
+      </Card>
     </Wrapper>
   );
 };

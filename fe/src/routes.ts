@@ -28,9 +28,20 @@ const FE = {
 
 const traktLogin = baseApiUrl + API.auth.login;
 
+
+const tmdb = {
+  baseUrl: "https://api.themoviedb.org/3",
+  image: {
+    base: 'https://image.tmdb.org/t/p/original',
+    w780: 'https://image.tmdb.org/t/p/w780',
+    w185: 'https://image.tmdb.org/t/p/w185',
+  }
+}
+
 export {
   baseApiUrl,
   API,
   traktLogin,
-  FE
+  FE,
+  tmdb
 }

@@ -13,14 +13,15 @@ import { FE } from './routes';
 import { StylesProvider } from '@material-ui/core/styles';
 import LoginPage from 'components/LoginPage/LoginPage';
 import { useStores } from './stores/store';
-import History from 'pages/History/History';
-import HistoryDetail from 'pages/History/Detail';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import LoggedApp from './components/LoggedApp/LoggedApp';
+import './global.scss';
 
 interface Match {
   token: string;
 }
+
+export const localStorageRedirectKey = 'redirect_after_login';
 
 const App: React.FC = () => {
   const { userStore, apiStore } = useStores();
@@ -37,10 +38,15 @@ const App: React.FC = () => {
   const loginCallback = (props: RouteComponentProps<Match>) => {
     const { token } = props.match.params;
     apiStore.token = token;
+    props.history.push('/login');
     return <div />;
   };
 
   function PrivateRoute({ children, ...rest }: RouteProps) {
+    if(!user && rest && rest.location)  {
+      localStorage.setItem(localStorageRedirectKey, rest.location.pathname)
+    }
+
     return (
       <Route
         {...rest}

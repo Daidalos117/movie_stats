@@ -21,7 +21,7 @@ const History: React.FC = () => {
 
   return (
     <>
-      <Box mt={8} textAlign="right">
+      <Box textAlign="right">
         <Button
           color="primary"
           variant="outlined"
