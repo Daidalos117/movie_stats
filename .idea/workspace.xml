@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/fe/src/api/tmdb.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fe/src/components/Loading/Loading.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/api/backend.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/api/backend.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/pages/History/Detail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/pages/History/Detail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/pages/History/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/pages/History/History.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/react-app-env.d.ts" afterDir="false" />
-    </list>
+    <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +45,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/now.json">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" lean-forward="true" selection-end-line="15" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -340,7 +332,7 @@
       <workItem from="1573149736373" duration="9180000" />
       <workItem from="1573502465771" duration="2713000" />
       <workItem from="1573559861768" duration="5711000" />
-      <workItem from="1573654617880" duration="222000" />
+      <workItem from="1573654617880" duration="627000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1572249842016</created>
@@ -440,14 +432,22 @@
       <option name="project" value="LOCAL" />
       <updated>1573589147327</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fix some things">
+      <created>1573655016918</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1573655016918</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89977000" />
+    <option name="totallyTimeSpent" value="90382000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26824033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -465,9 +465,9 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" weight="0.3243243" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" visible="true" weight="0.3243243" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50143063" side_tool="true" weight="0.32923833" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" visible="true" weight="0.28255528" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" weight="0.28255528" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -547,7 +547,8 @@
     <MESSAGE value="&#10;Fixes" />
     <MESSAGE value="Fixed package.json" />
     <MESSAGE value="Layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout" />
+    <MESSAGE value="Fix some things" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix some things" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -673,6 +674,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="e#30#85#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -754,6 +758,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -761,6 +768,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -775,6 +785,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -792,6 +805,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -883,7 +899,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/now.json">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" lean-forward="true" selection-end-line="15" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
