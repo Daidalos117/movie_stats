@@ -49,7 +49,9 @@ const History: React.FC = () => {
           }
         ]}
         options={{
-          actionsColumnIndex: -1
+          actionsColumnIndex: -1,
+          pageSize: 20,
+          pageSizeOptions: [20, 50, 200]
         }}
         data={query =>
           new Promise(async (resolve, reject) => {

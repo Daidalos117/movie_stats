@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   RouteComponentProps,
   RouteProps,
-  Redirect,
-  useHistory
+  Redirect
 } from 'react-router-dom';
 
 import { observer } from 'mobx-react';
@@ -17,6 +16,7 @@ import { useStores } from './stores/store';
 import History from 'pages/History/History';
 import HistoryDetail from 'pages/History/Detail';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import LoggedApp from './components/LoggedApp/LoggedApp';
 
 interface Match {
   token: string;
@@ -27,7 +27,6 @@ const App: React.FC = () => {
   const { fetchUser } = userStore;
   const { user } = userStore;
   const { token } = apiStore;
-
 
   useEffect(() => {
     if (token) {
@@ -71,14 +70,6 @@ const App: React.FC = () => {
               <LoginPage />
             </Route>
 
-            <PrivateRoute exact path={FE.index}>
-              <History />
-            </PrivateRoute>
-
-            <PrivateRoute exact path={`/${FE.movie.index}/:id`}>
-              <HistoryDetail />
-            </PrivateRoute>
-
             <Route
               exact
               path={`${FE.auth.callback}/:token`}
@@ -89,6 +80,10 @@ const App: React.FC = () => {
                 return <div />;
               }}
             />
+
+            <PrivateRoute path="/">
+              <LoggedApp />
+            </PrivateRoute>
           </Switch>
         </div>
       </StylesProvider>
