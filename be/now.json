@@ -1,6 +1,6 @@
 {
   "env": {
-    "MONGODB_URL": "secret-name",
-    "JWT_SECRET": "123hasfasfc"
+    "MONGODB_URL": "@mongodb_url",
+    "JWT_SECRET": "@jwt_secret"
   }
 }
