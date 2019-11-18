@@ -10,6 +10,7 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "be/app.js" },
+    { "src": "/about", "dest": "https://about.me" },
     { "src": "/(.*)", "dest": "fe/build/index.html" }
   ]
 }

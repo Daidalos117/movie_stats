@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/now.json" beforeDir="false" afterPath="$PROJECT_DIR$/now.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,7 +51,16 @@
         <entry file="file://$PROJECT_DIR$/now.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="276">
-              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/be/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -96,7 +106,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>initialize</find>
       <find>User</find>
       <find>auth</find>
       <find>jwt</find>
@@ -126,6 +135,7 @@
       <find>useHi</find>
       <find>ENV</find>
       <find>styled</find>
+      <find>await</find>
     </findStrings>
     <replaceStrings>
       <replace>const</replace>
@@ -149,7 +159,6 @@
         <option value="$PROJECT_DIR$/be/models/SeenModel.js" />
         <option value="$PROJECT_DIR$/be/routes/auth.js" />
         <option value="$PROJECT_DIR$/be/app.js" />
-        <option value="$PROJECT_DIR$/be/package.json" />
         <option value="$PROJECT_DIR$/be/models/HistoryModel.js" />
         <option value="$PROJECT_DIR$/be/routes/api.js" />
         <option value="$PROJECT_DIR$/be/api/trakt.js" />
@@ -192,6 +201,7 @@
         <option value="$PROJECT_DIR$/fe/src/routes.ts" />
         <option value="$PROJECT_DIR$/fe/src/components/LoginPage/LoginPage.tsx" />
         <option value="$PROJECT_DIR$/fe/src/App.tsx" />
+        <option value="$PROJECT_DIR$/be/package.json" />
         <option value="$PROJECT_DIR$/now.json" />
       </list>
     </option>
@@ -230,6 +240,11 @@
             <path>
               <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
               <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="be" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
@@ -331,7 +346,7 @@
       <workItem from="1573724421781" duration="270000" />
       <workItem from="1573811757419" duration="7000" />
       <workItem from="1574074245898" duration="679000" />
-      <workItem from="1574081063004" duration="1184000" />
+      <workItem from="1574081063004" duration="1612000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1572249842016</created>
@@ -473,17 +488,24 @@
       <option name="project" value="LOCAL" />
       <updated>1573681938517</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Edited now.json">
+      <created>1574085928556</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1574085928556</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98344000" />
+    <option name="totallyTimeSpent" value="98772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22961374" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22961374" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -499,9 +521,9 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" weight="0.5202952" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" weight="0.519656" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50143063" side_tool="true" weight="0.32923833" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" weight="0.2804428" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" visible="true" weight="0.2800983" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -587,7 +609,8 @@
     <MESSAGE value="Add material icons" />
     <MESSAGE value="Some design changes" />
     <MESSAGE value="Add node sass" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add node sass" />
+    <MESSAGE value="Edited now.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited now.json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -867,13 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/be/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/pages/History/Detail.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
@@ -925,10 +941,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/be/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/now.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
-          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
         </state>
       </provider>
     </entry>
