@@ -78,7 +78,7 @@ app.use(function(req, res, next) {
 
 //Route Prefixes
 app.use('/', indexRouter);
-app.use('/api/', apiRouter);
+app.use('/api/', indexRouter);
 
 // throw 404 if URL not found
 app.all('*', function(req, res) {

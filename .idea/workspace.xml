@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/be/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/helpers/history.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/now.json" beforeDir="false" afterPath="$PROJECT_DIR$/now.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fe/src/App.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
+            <state relative-caret-position="280">
               <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
@@ -46,28 +41,55 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/package.json">
+        <entry file="file://$PROJECT_DIR$/now.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-893">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/be/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="252">
+              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/now.json">
+        <entry file="file://$PROJECT_DIR$/be/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            <state relative-caret-position="1052">
+              <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/be/now.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/be/.eslintrc.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/be/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/be/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -111,8 +133,8 @@
       <find>useHi</find>
       <find>ENV</find>
       <find>styled</find>
-      <find>await</find>
       <find>mongodb-client-encryption</find>
+      <find>await</find>
     </findStrings>
     <replaceStrings>
       <replace>const</replace>
@@ -136,7 +158,6 @@
         <option value="$PROJECT_DIR$/be/models/MovieModel.js" />
         <option value="$PROJECT_DIR$/be/models/SeenModel.js" />
         <option value="$PROJECT_DIR$/be/routes/auth.js" />
-        <option value="$PROJECT_DIR$/be/app.js" />
         <option value="$PROJECT_DIR$/be/models/HistoryModel.js" />
         <option value="$PROJECT_DIR$/be/routes/api.js" />
         <option value="$PROJECT_DIR$/be/api/trakt.js" />
@@ -151,7 +172,6 @@
         <option value="$PROJECT_DIR$/fe/src/declarations/debounce.d.ts" />
         <option value="$PROJECT_DIR$/fe/src/components/Tables/Material.tsx" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/be/now.json" />
         <option value="$PROJECT_DIR$/be/.gitignore" />
         <option value="$PROJECT_DIR$/be/routes/history.js" />
         <option value="$PROJECT_DIR$/be/routes/movie.js" />
@@ -172,7 +192,6 @@
         <option value="$PROJECT_DIR$/fe/src/routes.ts" />
         <option value="$PROJECT_DIR$/fe/src/components/LoginPage/LoginPage.tsx" />
         <option value="$PROJECT_DIR$/fe/src/App.tsx" />
-        <option value="$PROJECT_DIR$/now.json" />
         <option value="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" />
@@ -181,6 +200,9 @@
         <option value="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" />
         <option value="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" />
         <option value="$PROJECT_DIR$/be/package.json" />
+        <option value="$PROJECT_DIR$/now.json" />
+        <option value="$PROJECT_DIR$/be/app.js" />
+        <option value="$PROJECT_DIR$/be/now.json" />
       </list>
     </option>
   </component>
@@ -228,50 +250,6 @@
               <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
               <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
               <item name="fe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="LoginPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Tables" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="fe" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="declarations" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -368,7 +346,7 @@
       <workItem from="1573724421781" duration="270000" />
       <workItem from="1573811757419" duration="7000" />
       <workItem from="1574074245898" duration="679000" />
-      <workItem from="1574081063004" duration="2005000" />
+      <workItem from="1574081063004" duration="3410000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1572249842016</created>
@@ -524,11 +502,18 @@
       <option name="project" value="LOCAL" />
       <updated>1574086494529</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Refactor and npm">
+      <created>1574086963268</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1574086963268</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99165000" />
+    <option name="totallyTimeSpent" value="100570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -640,7 +625,8 @@
     <MESSAGE value="Add node sass" />
     <MESSAGE value="Edited now.json" />
     <MESSAGE value="Testing new now.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing new now.json" />
+    <MESSAGE value="Refactor and npm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor and npm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -653,22 +639,8 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/be/node_modules/express/lib/express.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/be/node_modules/morgan/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/be/.eslintrc.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fe/node_modules/@types/react/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -724,14 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/be/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="10" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/be/now.json" />
     <entry file="file://$PROJECT_DIR$/be/routes/history.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -771,13 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/now.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -830,29 +787,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/be/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/pages/History/Detail.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -996,13 +936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/now.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-893">
@@ -1010,10 +943,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/now.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="66" selection-start-line="3" selection-start-column="66" selection-end-line="3" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/be/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="119">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/now.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1052">
+          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-254">
+          <caret line="5" column="10" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/.eslintrc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/now.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>

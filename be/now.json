@@ -1,8 +1,6 @@
 {
-  "build": {
-    "env": {
-      "MONGODB_URL": "@secret-name",
-      "JWT_SECRET": "123hasfasfc"
-    }
+  "env": {
+    "MONGODB_URL": "@secret-name",
+    "JWT_SECRET": "123hasfasfc"
   }
 }
