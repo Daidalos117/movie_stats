@@ -133,7 +133,7 @@ router.get('/logout', function(req, res) {
 
 
 const authenticate = expressJwt({
-  secret: process.env.jwt_secret,
+  secret: process.env.JWT_SECRET,
 });
 
 module.exports = {

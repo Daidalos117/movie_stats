@@ -55,7 +55,7 @@ app.use(function(req, res, next) {
       let decoded;
 
     try {
-      decoded = jwt.verify(authorization, process.env.jwt_secret);
+      decoded = jwt.verify(authorization, process.env.JWT_SECRET);
     } catch (e) {
       return res.status(401).send('unauthorized');
     }
