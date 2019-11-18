@@ -1,5 +1,9 @@
 {
   "version": 2,
+  "env": {
+    "MONGODB_URL": "secret-name",
+    "JWT_SECRET": "123hasfasfc"
+  },
   "builds": [
     { "src": "be/app.js", "use": "@now/node-server" },
     {

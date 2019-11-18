@@ -4,8 +4,10 @@
     <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/be/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be/middlewares/jwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/middlewares/jwt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be/models/UserModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/models/UserModel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be/now.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/now.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/routes/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/now.json" beforeDir="false" afterPath="$PROJECT_DIR$/now.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/now.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+            <state relative-caret-position="114">
+              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -52,26 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/be/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1052">
-              <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/be/now.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/be/.eslintrc.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            <state relative-caret-position="289">
+              <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -79,17 +63,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/be/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+            <state relative-caret-position="23">
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/be/package.json">
+        <entry file="file://$PROJECT_DIR$/be/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+            <state relative-caret-position="184">
+              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -105,9 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>auth</find>
-      <find>jwt</find>
-      <find>var</find>
       <find>console.lo</find>
       <find>authenticate</find>
       <find>match</find>
@@ -134,6 +115,9 @@
       <find>ENV</find>
       <find>styled</find>
       <find>mongodb-client-encryption</find>
+      <find>JWT_SECRET</find>
+      <find>jwt_secret</find>
+      <find>secret-name</find>
       <find>await</find>
     </findStrings>
     <replaceStrings>
@@ -142,8 +126,8 @@
     <dirStrings>
       <dir>$PROJECT_DIR$/fe/src</dir>
       <dir>$PROJECT_DIR$/fe/src/components</dir>
-      <dir>$PROJECT_DIR$/be</dir>
       <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/be</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -152,9 +136,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/be/routes/index.js" />
         <option value="$PROJECT_DIR$/be/models/UserModel.js" />
-        <option value="$PROJECT_DIR$/be/middlewares/jwt.js" />
         <option value="$PROJECT_DIR$/be/models/MovieModel.js" />
         <option value="$PROJECT_DIR$/be/models/SeenModel.js" />
         <option value="$PROJECT_DIR$/be/routes/auth.js" />
@@ -200,9 +182,11 @@
         <option value="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" />
         <option value="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" />
         <option value="$PROJECT_DIR$/be/package.json" />
-        <option value="$PROJECT_DIR$/now.json" />
         <option value="$PROJECT_DIR$/be/app.js" />
+        <option value="$PROJECT_DIR$/be/middlewares/jwt.js" />
+        <option value="$PROJECT_DIR$/be/.env" />
         <option value="$PROJECT_DIR$/be/now.json" />
+        <option value="$PROJECT_DIR$/now.json" />
       </list>
     </option>
   </component>
@@ -240,11 +224,6 @@
             <path>
               <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
               <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="be" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
@@ -346,7 +325,7 @@
       <workItem from="1573724421781" duration="270000" />
       <workItem from="1573811757419" duration="7000" />
       <workItem from="1574074245898" duration="679000" />
-      <workItem from="1574081063004" duration="3410000" />
+      <workItem from="1574081063004" duration="5037000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1572249842016</created>
@@ -509,11 +488,18 @@
       <option name="project" value="LOCAL" />
       <updated>1574086963268</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="SOme new settings">
+      <created>1574088969982</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1574088969983</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100570000" />
+    <option name="totallyTimeSpent" value="102197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -626,7 +612,8 @@
     <MESSAGE value="Edited now.json" />
     <MESSAGE value="Testing new now.json" />
     <MESSAGE value="Refactor and npm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor and npm" />
+    <MESSAGE value="SOme new settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="SOme new settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -639,9 +626,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/be/node_modules/morgan/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/node_modules/@types/react/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -960,34 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/be/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/now.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/be/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1052">
-          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/be/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-254">
-          <caret line="5" column="10" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/be/.eslintrc.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -995,17 +951,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/be/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/be/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+        <state relative-caret-position="23">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/middlewares/jwt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/be/now.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="23">
+          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/now.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
         </state>
       </provider>
     </entry>
