@@ -29,7 +29,8 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-trakt": "^1.0.4",
-    "await-to-js": "^2.1.1"
+    "await-to-js": "^2.1.1",
+    "mongodb-client-encryption": "0.3.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -37,6 +38,7 @@
     "eslint": "^6.5.1",
     "mocha": "^6.2.2",
     "nodemon": "^1.19.4",
-    "nyc": "^14.1.1"
+    "nyc": "^14.1.1",
+
   }
 }

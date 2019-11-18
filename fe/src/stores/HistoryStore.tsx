@@ -4,7 +4,6 @@ import { ApiStore } from './ApiStore';
 import { stores } from './store';
 import { Movie } from './MoviesStore';
 import { API } from '../routes';
-import {MaterialTableProps} from "material-table";
 import {RefObject} from "react";
 
 export interface History {

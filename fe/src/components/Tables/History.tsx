@@ -2,19 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import { useStores } from 'stores/store';
 import Material from './Material';
 import { observer } from 'mobx-react';
-import Layout from 'components/Layout/Layout';
 import { DateTime } from 'luxon';
 import RemoveRedEye from '@material-ui/icons/RemoveRedEye';
 import api from 'api/backend';
 import { API, FE } from 'routes';
 import { History as HistoryType } from 'stores/HistoryStore';
 import { useHistory } from 'react-router';
-import debounce from 'debounce';
 
 const History: React.FC = () => {
   const { historyStore } = useStores();
   const history = useHistory();
-  const { fetchHistory, data } = historyStore;
   const tableRef = useRef(null);
 
   useEffect(() => {
@@ -26,7 +23,6 @@ const History: React.FC = () => {
       <Material
         title="Movies History"
         tableRef={historyStore.tableRef}
-
         columns={[
           {
             title: 'Movie',
@@ -54,7 +50,7 @@ const History: React.FC = () => {
           pageSizeOptions: [20, 50, 200]
         }}
         data={query =>
-          new Promise(async (resolve, reject) => {
+          new Promise(async resolve => {
             const url = API.history.index;
 
             const response = await api(url, {

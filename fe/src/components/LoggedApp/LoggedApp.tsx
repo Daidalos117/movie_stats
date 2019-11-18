@@ -9,7 +9,7 @@ import Layout from 'components/Layout/Layout';
 
 interface Props {}
 
-const LoggedApp: React.FC<Props> = props => {
+const LoggedApp: React.FC<Props> = () => {
   return (
     <>
       <Menu />

@@ -20,8 +20,6 @@ class UserStore extends ApiStore<User> {
   @observable user: null | User = null;
   @observable logging: boolean = false;
 
-  @action
-  setUser(user: User) {}
 
   @action
   async fetchUser() {

@@ -4,7 +4,14 @@
     <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/be/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/now.json" beforeDir="false" afterPath="$PROJECT_DIR$/now.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/helpers/history.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +24,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fe/src/pages/History/Detail.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
+            <state>
               <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -41,56 +48,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fe/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
+            <state relative-caret-position="-893">
               <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/now.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/be/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+            <state relative-caret-position="185">
+              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/src/routes.ts">
+        <entry file="file://$PROJECT_DIR$/now.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/src/components/LoginPage/LoginPage.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/src/global.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="171">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -106,7 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>User</find>
       <find>auth</find>
       <find>jwt</find>
       <find>var</find>
@@ -136,14 +112,16 @@
       <find>ENV</find>
       <find>styled</find>
       <find>await</find>
+      <find>mongodb-client-encryption</find>
     </findStrings>
     <replaceStrings>
       <replace>const</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$/be</dir>
       <dir>$PROJECT_DIR$/fe/src</dir>
       <dir>$PROJECT_DIR$/fe/src/components</dir>
+      <dir>$PROJECT_DIR$/be</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -164,15 +142,11 @@
         <option value="$PROJECT_DIR$/be/api/trakt.js" />
         <option value="$PROJECT_DIR$/fe/src/api/backend.js" />
         <option value="$PROJECT_DIR$/fe/src/stores/store.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" />
         <option value="$PROJECT_DIR$/be/routes/user.js" />
-        <option value="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" />
         <option value="$PROJECT_DIR$/fe/src/components/Layout/Layout.ts" />
         <option value="$PROJECT_DIR$/fe/src/index.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/components/App/App.tsx" />
         <option value="$PROJECT_DIR$/fe/src/components/App/History.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/declarations/debounce.d.ts" />
         <option value="$PROJECT_DIR$/fe/src/components/Tables/Material.tsx" />
@@ -181,11 +155,9 @@
         <option value="$PROJECT_DIR$/be/.gitignore" />
         <option value="$PROJECT_DIR$/be/routes/history.js" />
         <option value="$PROJECT_DIR$/be/routes/movie.js" />
-        <option value="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" />
         <option value="$PROJECT_DIR$/fe/src/components/Loading/Loading.tsx" />
         <option value="$PROJECT_DIR$/fe/src/api/backend.ts" />
         <option value="$PROJECT_DIR$/fe/src/components/Layout/LoggedApp.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" />
         <option value="$PROJECT_DIR$/fe/src/.env.local" />
         <option value="$PROJECT_DIR$/fe/src/.env" />
         <option value="$PROJECT_DIR$/fe/src/react-app-env.d.ts" />
@@ -196,13 +168,19 @@
         <option value="$PROJECT_DIR$/fe/src/api/tmdb.ts" />
         <option value="$PROJECT_DIR$/fe/src/global.scss" />
         <option value="$PROJECT_DIR$/fe/src/pages/History/History.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" />
         <option value="$PROJECT_DIR$/fe/src/pages/History/Detail.tsx" />
         <option value="$PROJECT_DIR$/fe/src/routes.ts" />
         <option value="$PROJECT_DIR$/fe/src/components/LoginPage/LoginPage.tsx" />
         <option value="$PROJECT_DIR$/fe/src/App.tsx" />
-        <option value="$PROJECT_DIR$/be/package.json" />
         <option value="$PROJECT_DIR$/now.json" />
+        <option value="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" />
+        <option value="$PROJECT_DIR$/be/package.json" />
       </list>
     </option>
   </component>
@@ -250,6 +228,50 @@
               <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
               <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
               <item name="fe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="LoginPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Menu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Tables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="declarations" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -346,7 +368,7 @@
       <workItem from="1573724421781" duration="270000" />
       <workItem from="1573811757419" duration="7000" />
       <workItem from="1574074245898" duration="679000" />
-      <workItem from="1574081063004" duration="1612000" />
+      <workItem from="1574081063004" duration="2005000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1572249842016</created>
@@ -495,17 +517,24 @@
       <option name="project" value="LOCAL" />
       <updated>1574085928556</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Testing new now.json">
+      <created>1574086494529</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1574086494529</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98772000" />
+    <option name="totallyTimeSpent" value="99165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22961374" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22961374" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -521,9 +550,9 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" weight="0.519656" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" visible="true" weight="0.519656" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50143063" side_tool="true" weight="0.32923833" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" visible="true" weight="0.2800983" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" weight="0.2800983" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -610,7 +639,8 @@
     <MESSAGE value="Some design changes" />
     <MESSAGE value="Add node sass" />
     <MESSAGE value="Edited now.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited now.json" />
+    <MESSAGE value="Testing new now.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing new now.json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -623,12 +653,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/be/helpers/utility.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/node_modules/@types/react-router-dom/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/be/node_modules/express/lib/express.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -638,13 +662,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/be/node_modules/morgan/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/stores/store.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/be/.eslintrc.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -667,20 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/helpers/history.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/declarations/debounce.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/be/helpers/apiResponse.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -692,20 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="188" column="18" selection-start-line="188" selection-start-column="2" selection-end-line="188" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -762,27 +751,6 @@
         <state relative-caret-position="-1877" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/Tables/History.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/Tables/Material.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/Loading/Loading.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/api/backend.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -806,13 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/stores/ApiStore.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/now.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -831,13 +792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -869,13 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/node_modules/@material-ui/core/Button/Button.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -892,7 +839,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/pages/History/Detail.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
+        <state>
           <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -910,27 +857,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/routes.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="759">
           <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/LoginPage/LoginPage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,17 +871,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/be/package.json">
+    <entry file="file://$PROJECT_DIR$/fe/src/stores/ApiStore.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        <state relative-caret-position="92">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-640">
+          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+          <folding>
+            <element signature="e#30#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/stores/store.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/stores/UserStore.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <folding>
+            <element signature="e#30#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/helpers/history.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/declarations/debounce.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/Layout/Layout.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/Loading/Loading.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-243">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/LoginPage/LoginPage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/Tables/History.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1399">
+          <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/Tables/Material.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-113">
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/now.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        <state relative-caret-position="171">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-893">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
         </state>
       </provider>
     </entry>

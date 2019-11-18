@@ -1,9 +1,7 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid/Grid';
-import Menu from '../Menu/Menu';
-import Loading from '../Loading/Loading';
 import styled from 'styled-components';
-import Toolbar from "@material-ui/core/Toolbar/Toolbar";
+
 interface Props {}
 
 const StyledGrid = styled(Grid)` 

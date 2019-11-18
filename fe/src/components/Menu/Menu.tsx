@@ -17,7 +17,7 @@ const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
 `;
 
-const Menu: React.FC<Props> = props => {
+const Menu: React.FC<Props> = () => {
   const { userStore } = useStores();
   const { user } = userStore;
 
