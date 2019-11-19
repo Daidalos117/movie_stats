@@ -20,12 +20,17 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
+let httpsOptions = {};
 
-const httpsOptions = {
-  key: fs.readFileSync('./security/key.pem'),
-  ca: fs.readFileSync('./security/client.csr'),
-  cert: fs.readFileSync('./security/cert.pem')
-};
+if (process.env.NODE_ENV === 'development') {
+  httpsOptions = {
+    key: fs.readFileSync('./security/key.pem'),
+    ca: fs.readFileSync('./security/client.csr'),
+    cert: fs.readFileSync('./security/cert.pem')
+  };
+} else {
+  httpsOptions = {};
+}
 
 var server = https.createServer(httpsOptions, app);
 
@@ -34,7 +39,6 @@ server.listen(port);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 
 server.on('error', onError);
 server.on('listening', onListening);

@@ -31,12 +31,11 @@ mongoose
     process.exit(1);
   });
 
-console.log({ mongoose });
-console.log('here', 1);
+
 var db = mongoose.connection;
 
 var app = express();
-console.log('here', 2);
+
 //don't show the log when it is test
 if (process.env.NODE_ENV !== 'test') {
   app.use(logger('dev'));
@@ -45,11 +44,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-console.log('here', 3);
+
 // passport
 app.use(passport.initialize());
 app.use(passport.session());
-console.log('here', 4);
+
 //To allow cross-origin requests
 app.use(cors());
 console.log('here', 5);
@@ -57,7 +56,7 @@ console.log('here', 5);
 //Route Prefixes
 app.use('/', indexRouter);
 app.use('/api/', indexRouter);
-console.log('here', 6);
+
 
 // throw 404 if URL not found
 app.all('*', function(req, res) {
