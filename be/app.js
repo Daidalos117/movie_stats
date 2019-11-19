@@ -10,10 +10,11 @@ var cors = require('cors');
 var passport = require('passport');
 const UserModel = require('./models/UserModel');
 const jwt = require('jsonwebtoken');
+var mongoose = require('mongoose');
+
 
 // DB connection
 var MONGODB_URL = process.env.MONGODB_URL;
-var mongoose = require('mongoose');
 mongoose
   .connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

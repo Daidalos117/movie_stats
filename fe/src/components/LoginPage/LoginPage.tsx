@@ -19,13 +19,16 @@ const Wrapper = styled('div')`
   justify-content: center;
   align-items: center;
   background: url(${process.env.PUBLIC_URL}/img/login_bg.jpg);
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
-const StyledCardContent = styled(CardContent)`
+const StyledCard = styled(CardContent)`
   padding: 1rem 2rem;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  .MuiPaper-root {
+  }
 `;
 
 interface Props {}
@@ -47,8 +50,8 @@ const LoginPage: React.FC<Props> = props => {
 
   return (
     <Wrapper>
-      <Card>
-        <StyledCardContent>
+      <StyledCard>
+        <CardContent>
           <Typography variant="h4" gutterBottom>
             Trakt.tv
           </Typography>
@@ -73,8 +76,8 @@ const LoginPage: React.FC<Props> = props => {
               )}
             </Button>
           </Box>
-        </StyledCardContent>
-      </Card>
+        </CardContent>
+      </StyledCard>
     </Wrapper>
   );
 };

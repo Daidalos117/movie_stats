@@ -13,7 +13,7 @@
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "be/app.js" },
+    { "src": "/api/(.*)", "dest": "be/bin/www" },
     { "src": "/(.*)", "dest": "fe/$1" }
   ]
 }
