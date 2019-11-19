@@ -5,7 +5,7 @@
     "JWT_SECRET": "@jwt_secret"
   },
   "builds": [
-    { "src": "be/app.js", "use": "@now/node-server" },
+    { "src": "be/bin/www", "use": "@now/node-server" },
     {
       "src": "fe/package.json",
       "use": "@now/static-build",
