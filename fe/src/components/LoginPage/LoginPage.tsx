@@ -23,7 +23,7 @@ const Wrapper = styled('div')`
   background-repeat: no-repeat;
 `;
 
-const StyledCard = styled(CardContent)`
+const StyledCard = styled(Card)`
   padding: 1rem 2rem;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;

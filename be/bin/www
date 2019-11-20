@@ -28,16 +28,15 @@ if (process.env.NODE_ENV === 'development') {
     ca: fs.readFileSync('./security/client.csr'),
     cert: fs.readFileSync('./security/cert.pem')
   };
-	app.set('port', port);
 } else {
   httpsOptions = {};
 }
-
-
-
+app.set('port', port);
 var server = https.createServer(httpsOptions, app);
 console.log('listen');
 server.listen(port);
+
+
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -101,3 +100,4 @@ function onListening() {
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+module.exports = server;

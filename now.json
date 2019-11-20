@@ -2,11 +2,10 @@
   "version": 2,
   "env": {
     "MONGODB_URL": "@mongodb_url",
-    "JWT_SECRET": "@jwt_secret",
-    "PORT": "80"
+    "JWT_SECRET": "@jwt_secret"
   },
   "builds": [
-    { "src": "be/bin/www", "use": "@now/node-server" },
+    { "src": "be/app.js", "use": "@now/node" },
     {
       "src": "fe/package.json",
       "use": "@now/static-build",
@@ -14,7 +13,7 @@
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "be/bin/www" },
+    { "src": "/api/(.*)", "dest": "be/app.js" },
     { "src": "/(.*)", "dest": "fe/$1" }
   ]
 }
