@@ -2,7 +2,8 @@
   "version": 2,
   "env": {
     "MONGODB_URL": "@mongodb_url",
-    "JWT_SECRET": "@jwt_secret"
+    "JWT_SECRET": "@jwt_secret",
+    "PORT": "80"
   },
   "builds": [
     { "src": "be/bin/www", "use": "@now/node-server" },
