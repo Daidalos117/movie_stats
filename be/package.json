@@ -2,12 +2,7 @@
   "name": "rest-api-nodejs-mongodb",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "dev": "nodemon --inspect ./bin/www",
-    "start": "npm run dev",
-    "test": "nyc _mocha --timeout 10000 --exit --report lcovonly -- -R spec",
-    "lint": "eslint --fix --config .eslintrc.json \"**/*.js\""
-  },
+
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
