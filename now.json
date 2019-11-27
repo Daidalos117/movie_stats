@@ -1,19 +1,38 @@
 {
-  "version": 2,
   "env": {
     "MONGODB_URL": "@mongodb_url",
     "JWT_SECRET": "@jwt_secret"
   },
   "builds": [
-    { "src": "be/app.js", "use": "@now/node" },
     {
       "src": "fe/package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "build" }
+      "config": {
+        "distDir": "build"
+      }
+    },
+    {
+      "src": "be/app.js",
+      "use": "@now/node"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "be/app.js" },
-    { "src": "/(.*)", "dest": "fe/$1" }
+    {
+      "src": "/api/(.*)",
+      "dest": "be/app.js"
+    },
+    {
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET",
+        "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
+      },
+      "src": "/(.*)",
+      "dest": "/fe/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/fe/index.html"
+    }
   ]
 }

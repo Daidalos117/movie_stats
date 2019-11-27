@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { fetcher } from 'api/backend';
-import { fetcher as tmdbFetcher } from 'api/tmdb';
+import { fetcher } from 'axios/backend';
+import { fetcher as tmdbFetcher } from 'axios/tmdb';
 import useSWR from 'swr';
 import { API } from 'routes';
 import { useParams } from 'react-router';

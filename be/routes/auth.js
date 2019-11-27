@@ -1,13 +1,12 @@
 const express = require('express');
-const fs = require('fs'),
-  passport = require('passport'),
-  TraktStrategy = require('passport-trakt').Strategy;
+//const passport = require('passport');
 const User = require('../models/UserModel');
-const router = express.Router();
-const jwt = require('jsonwebtoken');
-const passportJWT = require('passport-jwt');
-const expressJwt = require('express-jwt');
 
+//const router = express.Router();
+
+//const TraktStrategy = PassportTrakt.Strategy;
+
+/*
 const TRAKT_CLIENT_ID =
   process.env.TRAKT_CLIENT_ID ||
   'ee3279e31508a0f5b6a0df475dbc5fa83ce234140c9d39549aa4f1119483b78a';
@@ -130,13 +129,6 @@ router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
+*/
 
-
-const authenticate = expressJwt({
-  secret: process.env.JWT_SECRET,
-});
-
-module.exports = {
-  router,
-  authenticate
-};
+module.exports = {};

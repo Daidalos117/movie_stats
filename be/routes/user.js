@@ -1,9 +1,9 @@
 const express = require('express');
-const { authenticate } = require('./auth');
+const jwt = require('../middlewares/jwt');
 const User = require('../models/UserModel');
 const router = express.Router();
 
-router.get('/', authenticate, function(req, res) {
+router.get('/', jwt, function(req, res) {
   User.findById(req.user.id, function(err, user) {
     if (err) {
       res.status(400).send({ error: err });
@@ -13,7 +13,7 @@ router.get('/', authenticate, function(req, res) {
   });
 });
 
-router.post('/logout', authenticate, async (req, res) => {
+router.post('/logout', jwt, async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter(token => {
       return token.token !== req.token;
@@ -25,6 +25,4 @@ router.post('/logout', authenticate, async (req, res) => {
   }
 });
 
-module.exports = {
-  router
-};
+module.exports = router;

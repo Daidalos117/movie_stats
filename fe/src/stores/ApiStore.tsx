@@ -1,7 +1,7 @@
 import { observable, action, runInAction, observe } from 'mobx';
 import { baseApiUrl } from 'routes';
 import { AxiosError } from 'axios';
-import api from '../api/backend';
+import api from '../axios/backend';
 
 export class ApiStore<T> {
   localStorageKey: string = 'oath_token';

@@ -1,3 +1,4 @@
+
 var express = require("express");
 var authRouter = require("./auth");
 var userRouter = require("./user");
@@ -6,9 +7,10 @@ var historyRouter = require("./history");
 
 var app = express();
 
-app.use("/auth/", authRouter.router);
-app.use("/user/", userRouter.router)
+/*
+app.use("/auth/", authRouter);
+app.use("/user/", userRouter)
 app.use("/movie/", movieRouter);
-app.use("/history/", historyRouter);
+app.use("/history/", historyRouter);*/
 
 module.exports = app;

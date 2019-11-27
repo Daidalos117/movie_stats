@@ -4,7 +4,7 @@ import Material from './Material';
 import { observer } from 'mobx-react';
 import { DateTime } from 'luxon';
 import RemoveRedEye from '@material-ui/icons/RemoveRedEye';
-import api from 'api/backend';
+import api from 'axios/backend';
 import { API, FE } from 'routes';
 import { History as HistoryType } from 'stores/HistoryStore';
 import { useHistory } from 'react-router';
