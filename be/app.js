@@ -20,9 +20,15 @@ app.listen(port, err => {
 })
 
 
-app.get('/', (req, res) => {
-	res.send('ExpressJS server is online.')
+// app.get('/', (req, res) => {
+// 	res.send('ExpressJS server is online.')
+// })
+
+app.get('*', (req, res) => {
+	res.send(`ExpressJS server is responding from ${req.url}`);
 })
+
+
 
 
 module.exports = app;
