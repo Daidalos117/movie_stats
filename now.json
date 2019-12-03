@@ -4,13 +4,7 @@
     "JWT_SECRET": "@jwt_secret"
   },
   "builds": [
-    {
-      "src": "fe/package.json",
-      "use": "@now/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    },
+    
     {
       "src": "be/app.js",
       "use": "@now/node"
@@ -19,7 +13,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "be/app.js"
+      "dest": "/be/app.js"
     },
     {
       "headers": {
