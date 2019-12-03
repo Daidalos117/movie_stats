@@ -2,6 +2,9 @@
   "name": "movie_stats",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "10.x"
+  },
   "main": "index.js",
   "devDependencies": {
     "concurrently": "^4.1.2"
@@ -9,5 +12,4 @@
   "keywords": [],
   "author": "",
   "license": "ISC"
-
 }

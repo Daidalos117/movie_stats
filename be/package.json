@@ -2,6 +2,9 @@
   "name": "rest-api-nodejs-mongodb",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "10.x"
+  },
   "dependencies": {
     "await-to-js": "^2.1.1",
     "axios": "^0.19.0",
