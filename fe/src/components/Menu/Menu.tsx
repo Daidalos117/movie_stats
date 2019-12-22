@@ -5,8 +5,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
 
 import { traktLogin } from '../../routes';
 import styled from 'styled-components';
@@ -17,16 +19,30 @@ const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
 `;
 
+const StyledLink = styled(Link)`
+  color: white;
+`;
+
 const Menu: React.FC<Props> = () => {
-  const { userStore } = useStores();
+  const { userStore, uiStore } = useStores();
   const { user } = userStore;
+  const { menuBack } = uiStore;
 
   return (
     <AppBar position="static">
       <StyledToolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
-          <MenuIcon />
-        </IconButton>
+        <div>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          {menuBack && (
+            <StyledLink to={menuBack}>
+              <IconButton edge="start" color="inherit" aria-label="back">
+                <ArrowBack />
+              </IconButton>
+            </StyledLink>
+          )}
+        </div>
 
         {!user ? (
           <Button href={traktLogin} color="inherit">

@@ -51,11 +51,10 @@ app.use(passport.session());
 
 //To allow cross-origin requests
 app.use(cors());
-console.log('here', 5);
 
 //Route Prefixes
 app.use('/', indexRouter);
-app.use('/api/', indexRouter);
+app.use('/api/', apiRouter);
 
 
 // throw 404 if URL not found

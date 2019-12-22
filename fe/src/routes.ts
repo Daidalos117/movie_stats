@@ -1,4 +1,4 @@
-const baseApiUrl = process.env.REACT_APP_BE_URL || 'https://localhost:8080/api/';
+const baseApiUrl = process.env.REACT_APP_BE_URL || 'https://localhost:8080/api';
 const baseFeUrl = process.env.REACT_APP_FE_URL || 'https://localhost:3000';
 
 const API = {
@@ -16,7 +16,7 @@ const API = {
 
 const FE = {
   index: "/",
-  home: "/home",
+  home: "home",
   movie: {
     index: 'movie',
     detail: "detail",
@@ -38,8 +38,13 @@ const tmdb = {
   }
 }
 
+function withBaseUrl() {
+
+}
+
 export {
   baseApiUrl,
+  baseFeUrl,
   API,
   traktLogin,
   FE,
