@@ -2,6 +2,7 @@
 import { action, runInAction } from 'mobx';
 import { ApiStore } from './ApiStore';
 import { stores } from './store';
+import { History } from './HistoryStore';
 
 export interface Movie {
   _id: string;
@@ -13,6 +14,9 @@ export interface Movie {
     imdb: string;
     tmdb: number;
   };
+  createdAt: string;
+  updatedAt: string;
+  histories: History[];
 }
 
 type Movies = Movie[];

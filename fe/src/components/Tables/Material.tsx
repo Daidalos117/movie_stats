@@ -48,6 +48,7 @@ const History: React.FC<MaterialTableProps<any>> = ({options, ...restProps}) => 
       debounceInterval: 500
     }}
     icons={tableIcons}
+    title=''
     {...restProps}
   />
 );
