@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/fe/src/components/CustomTheme/CustomTheme.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/be/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be/routes/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/routes/history.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be/routes/movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/routes/movie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/fe/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/fe/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/App.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fe/src/App.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="305">
+              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -36,11 +34,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/be/routes/movie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+            <state relative-caret-position="126">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fe/src/components/CustomTheme/CustomTheme.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../node_modules/@material-ui/core/styles/MuiThemeProvider.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -55,27 +74,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/node_modules/@types/luxon/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3772">
-              <caret line="175" column="22" selection-start-line="175" selection-start-column="22" selection-end-line="175" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fe/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-346">
+            <state relative-caret-position="138">
               <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
             </state>
           </provider>
@@ -145,8 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/be/routes/api.js" />
-        <option value="$PROJECT_DIR$/be/api/trakt.js" />
         <option value="$PROJECT_DIR$/fe/src/api/backend.js" />
         <option value="$PROJECT_DIR$/be/routes/user.js" />
         <option value="$PROJECT_DIR$/fe/src/components/Layout/Layout.ts" />
@@ -168,7 +167,6 @@
         <option value="$PROJECT_DIR$/fe/src/api/tmdb.ts" />
         <option value="$PROJECT_DIR$/fe/src/global.scss" />
         <option value="$PROJECT_DIR$/fe/src/pages/History/History.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/App.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" />
@@ -196,6 +194,9 @@
         <option value="$PROJECT_DIR$/be/routes/history.js" />
         <option value="$PROJECT_DIR$/be/package.json" />
         <option value="$PROJECT_DIR$/be/routes/movie.js" />
+        <option value="$PROJECT_DIR$/fe/src/components/CustomTheme/index.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/App.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/components/CustomTheme/CustomTheme.tsx" />
       </list>
     </option>
   </component>
@@ -238,11 +239,6 @@
             <path>
               <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
               <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
-              <item name="be" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
               <item name="fe" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -268,19 +264,19 @@
     <property name="typescript-compiler-editor-notification" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/fe" />
-      <recent name="$PROJECT_DIR$/fe/src" />
-      <recent name="$PROJECT_DIR$/fe/src/api" />
-      <recent name="$PROJECT_DIR$/fe/src/stores" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/fe" />
       <recent name="$PROJECT_DIR$/fe/src/components/LoggedApp" />
       <recent name="$PROJECT_DIR$/fe/src/pages" />
       <recent name="$PROJECT_DIR$/fe/src/components" />
       <recent name="$PROJECT_DIR$/fe/src/helpers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fe/src/components" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/fe" />
+      <recent name="$PROJECT_DIR$/fe/src" />
+      <recent name="$PROJECT_DIR$/fe/src/api" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -343,7 +339,7 @@
       <workItem from="1574157570874" duration="514000" />
       <workItem from="1574174471116" duration="7855000" />
       <workItem from="1577042995884" duration="6416000" />
-      <workItem from="1577192816491" duration="934000" />
+      <workItem from="1577192816491" duration="2044000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1572249842016</created>
@@ -583,11 +579,18 @@
       <option name="project" value="LOCAL" />
       <updated>1577046668648</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Ordering in watched">
+      <created>1577195219232</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1577195219232</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125936000" />
+    <option name="totallyTimeSpent" value="127046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -609,9 +612,9 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" visible="true" weight="0.3857494" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" weight="0.3857494" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50143063" side_tool="true" weight="0.32923833" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" weight="0.27886978" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" visible="true" weight="0.27764127" />
       <window_info anchor="bottom" id="File Transfer" order="15" weight="0.32923833" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -685,7 +688,6 @@
       <path value="$PROJECT_DIR$/be" />
       <path value="$PROJECT_DIR$/fe" />
     </ignored-roots>
-    <MESSAGE value="History agreggation working" />
     <MESSAGE value="Filtering and pagination on Backend" />
     <MESSAGE value="Small fixes" />
     <MESSAGE value="&#10;Fixes" />
@@ -710,54 +712,10 @@
     <MESSAGE value="Edited package.json" />
     <MESSAGE value="Back button movie detail" />
     <MESSAGE value="Working movie history" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working movie history" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/fe/src/App.tsx</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Ordering in watched" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ordering in watched" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fe/node_modules/@types/react-router/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/node_modules/@types/history/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/.env.local">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/api/tmdb.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fe/node_modules/@material-ui/core/Button/Button.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/global.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -919,6 +877,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -995,16 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/routes.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -1033,24 +984,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-346">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/be/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1061,6 +998,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/be/routes/movie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/be/routes/history.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -1068,10 +1021,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/be/routes/movie.js">
+    <entry file="file://$PROJECT_DIR$/fe/src/App.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        <state relative-caret-position="305">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/@material-ui/core/styles/createMuiTheme.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/node_modules/@material-ui/core/styles/createMuiTheme.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/@material-ui/core/styles/MuiThemeProvider.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/CustomTheme/CustomTheme.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

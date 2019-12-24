@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +15,7 @@ import LoginPage from 'components/LoginPage/LoginPage';
 import { useStores } from './stores/store';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import LoggedApp from './components/LoggedApp/LoggedApp';
+import CustomTheme from './components/CustomTheme/CustomTheme';
 import './global.scss';
 
 interface Match {
@@ -43,8 +44,8 @@ const App: React.FC = () => {
   };
 
   function PrivateRoute({ children, ...rest }: RouteProps) {
-    if(!user && rest && rest.location)  {
-      localStorage.setItem(localStorageRedirectKey, rest.location.pathname)
+    if (!user && rest && rest.location) {
+      localStorage.setItem(localStorageRedirectKey, rest.location.pathname);
     }
 
     return (
@@ -69,29 +70,31 @@ const App: React.FC = () => {
   return (
     <Router>
       <StylesProvider injectFirst>
-        <CssBaseline />
-        <div className="App">
-          <Switch>
-            <Route path="/login">
-              <LoginPage />
-            </Route>
+        <CustomTheme>
+          <CssBaseline />
+          <div className="App">
+            <Switch>
+              <Route path="/login">
+                <LoginPage />
+              </Route>
 
-            <Route
-              exact
-              path={`${FE.auth.callback}/:token`}
-              render={(props: RouteComponentProps<Match>) => {
-                {
-                  loginCallback(props);
-                }
-                return <div />;
-              }}
-            />
+              <Route
+                exact
+                path={`${FE.auth.callback}/:token`}
+                render={(props: RouteComponentProps<Match>) => {
+                  {
+                    loginCallback(props);
+                  }
+                  return <div />;
+                }}
+              />
 
-            <PrivateRoute path="/">
-              <LoggedApp />
-            </PrivateRoute>
-          </Switch>
-        </div>
+              <PrivateRoute path="/">
+                <LoggedApp />
+              </PrivateRoute>
+            </Switch>
+          </div>
+        </CustomTheme>
       </StylesProvider>
     </Router>
   );
