@@ -26,14 +26,22 @@ router.get('/:id', jwt, async function(req, res) {
       {
         $lookup: {
           from: 'histories',
-          localField: '_id',
-          foreignField: 'movie',
-          as: 'histories'
+          let: { movie_id: '$_id' },
+          as: 'histories',
+          pipeline: [
+						{ "$match": { "$expr": { "$eq": ["$movie", "$$movie_id"] }}},
+            { $sort: { watched_at: -1 } }
+          ]
         }
       },
       {
         $match: {
           'histories.user': user._id
+        }
+      },
+      {
+        $sort: {
+          'histories.watched_at': -1
         }
       }
     ])

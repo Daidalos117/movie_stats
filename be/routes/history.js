@@ -118,14 +118,19 @@ router.get('/sync', jwt, async function(req, res) {
 
         if (foundHistory && foundHistory.length > 0) return;
         const { movie, ...restHistory } = history;
-        let [errM, foundMovie] = await to(MovieModel.find({ ids: movie.ids }));
+        let [errM, foundMovie] = await to(MovieModel.find({ 'ids.trakt': movie.ids.trakt }));
         let movieId = foundMovie.length && foundMovie[0]._id;
+
 
         if (!foundMovie.length) {
           let newMovie = new MovieModel({ ...movie });
           let [errSM, savedMovie] = await to(newMovie.save());
           movieId = savedMovie._id;
         }
+
+				console.log(movie.title);
+				console.table(foundMovie);
+
 
         const newHistory = new HistoryModel({
           ...restHistory,
@@ -136,6 +141,7 @@ router.get('/sync', jwt, async function(req, res) {
         let [errNH, savedHistory] = await to(newHistory.save());
         return savedHistory;
       });
+
       Promise.all(newData).then(() => {
         res.send(200, newData);
       });
