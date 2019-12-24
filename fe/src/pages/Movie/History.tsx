@@ -5,7 +5,7 @@ import { FE } from '../../routes';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { observer } from 'mobx-react';
-import HistoryTable from 'components/Tables/History';
+import HistoryTable from 'components/Tables/Movies';
 
 const History: React.FC = () => {
   const { userStore, historyStore } = useStores();

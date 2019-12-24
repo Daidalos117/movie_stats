@@ -4,7 +4,7 @@ import { observable } from 'mobx';
 
 class UiStore {
   @observable
-  menuBack: undefined | string;
+  menuBack: null | string = null  ;
 
   @observable
   theme: boolean = false; // 0 -> dark ; 1 -> light

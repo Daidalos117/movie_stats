@@ -9,10 +9,11 @@ import { API, FE } from 'routes';
 import { History as HistoryType } from 'stores/HistoryStore';
 import { useHistory } from 'react-router';
 
-const History: React.FC = () => {
-  const { historyStore } = useStores();
+const Movies: React.FC = () => {
+  const { historyStore, uiStore } = useStores();
   const history = useHistory();
   const tableRef = useRef(null);
+  uiStore.menuBack = null;
 
   useEffect(() => {
     historyStore.tableRef = tableRef;
@@ -64,9 +65,12 @@ const History: React.FC = () => {
             });
           })
         }
+        onRowClick={(event, rowData) => {
+          history.push(`${FE.movie.index}/${rowData.movie._id}`);
+        }}
       />
     </div>
   );
 };
 
-export default observer(History);
+export default observer(Movies);
