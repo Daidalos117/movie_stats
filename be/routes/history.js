@@ -24,7 +24,15 @@ router.get('/', jwt, async function(req, res) {
         as: 'movie'
       }
     },
-    { $match: { 'movie.title': new RegExp(search, 'i'), user: user._id } }, // match, search
+    {
+      $match: {
+        $or: [
+          { 'movie.title': new RegExp(search, 'i') },
+          { watched_at: new RegExp(search, 'i') }
+        ],
+        user: user._id
+      }
+    }, // match, search
     { $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
     {
       $project: {
@@ -118,9 +126,10 @@ router.get('/sync', jwt, async function(req, res) {
 
         if (foundHistory && foundHistory.length > 0) return;
         const { movie, ...restHistory } = history;
-        let [errM, foundMovie] = await to(MovieModel.find({ 'ids.trakt': movie.ids.trakt }));
+        let [errM, foundMovie] = await to(
+          MovieModel.find({ 'ids.trakt': movie.ids.trakt })
+        );
         let movieId = foundMovie.length && foundMovie[0]._id;
-
 
         if (!foundMovie.length) {
           let newMovie = new MovieModel({ ...movie });
@@ -128,9 +137,8 @@ router.get('/sync', jwt, async function(req, res) {
           movieId = savedMovie._id;
         }
 
-				console.log(movie.title);
-				console.table(foundMovie);
-
+        console.log(movie.title);
+        console.table(foundMovie);
 
         const newHistory = new HistoryModel({
           ...restHistory,

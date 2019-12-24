@@ -8,6 +8,7 @@ import api from 'api/backend';
 import { API, FE } from 'routes';
 import { History as HistoryType } from 'stores/HistoryStore';
 import { useHistory } from 'react-router';
+import { fromISO } from 'helpers/formatDate';
 
 const Movies: React.FC = () => {
   const { historyStore, uiStore } = useStores();
@@ -32,8 +33,7 @@ const Movies: React.FC = () => {
           {
             title: 'Watched at',
             field: 'watched_at',
-            render: rowData =>
-              DateTime.fromISO(rowData.watched_at).toFormat('dd.M.yyyy')
+            render: rowData => fromISO(rowData.watched_at).toFormat('dd.M.yyyy')
           }
         ]}
         actions={[

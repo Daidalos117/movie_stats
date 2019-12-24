@@ -12,7 +12,8 @@ import { tmdb } from 'routes';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import MaterialTable from 'components/Tables/Material';
-import {DateTime} from "luxon";
+import { DateTime } from 'luxon';
+import {fromISO} from "../../helpers/formatDate";
 
 interface Props {}
 
@@ -66,13 +67,13 @@ const Detail: React.FC<Props> = props => {
                   title: 'Date',
                   field: 'watched_at',
                   render: rowData =>
-                    DateTime.fromISO(rowData.watched_at).toFormat('dd.M.yyyy')
+                    fromISO(rowData.watched_at).toFormat('dd.M.yyyy')
                 },
                 {
                   title: 'Time',
                   field: 'watched_at',
                   render: rowData =>
-                    DateTime.fromISO(rowData.watched_at).toFormat('HH:mm')
+                    fromISO(rowData.watched_at).toFormat('HH:mm')
                 }
               ]}
               options={{
