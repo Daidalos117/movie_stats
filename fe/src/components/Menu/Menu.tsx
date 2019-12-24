@@ -6,10 +6,11 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import Box from '@material-ui/core/Box';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
-
+import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
 import { traktLogin } from '../../routes';
 import styled from 'styled-components';
 
@@ -44,13 +45,18 @@ const Menu: React.FC<Props> = () => {
           )}
         </div>
 
-        {!user ? (
-          <Button href={traktLogin} color="inherit">
-            Login
-          </Button>
-        ) : (
-          <Typography>{user.username}</Typography>
-        )}
+        <Box display="flex" alignItems="center">
+          <Box mr={2}>
+            <ThemeSwitch />
+          </Box>
+          {!user ? (
+            <Button href={traktLogin} color="inherit">
+              Login
+            </Button>
+          ) : (
+            <Typography>{user.username}</Typography>
+          )}
+        </Box>
       </StyledToolbar>
     </AppBar>
   );
