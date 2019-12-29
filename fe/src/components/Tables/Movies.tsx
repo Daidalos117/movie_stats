@@ -51,7 +51,7 @@ const Movies: React.FC = () => {
         }}
         data={query =>
           new Promise(async resolve => {
-            const url = API.history.index;
+            const url = API.movie.index;
 
             const response = await api(url, {
               params: query

@@ -9,7 +9,95 @@ const to = require('await-to-js').default;
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
-router.get('/', jwt, function(req, res) {});
+router.get('/', jwt, async function(req, res) {
+	const { user } = req;
+	const match = {};
+	const { query } = req;
+	const { page, pageSize, orderBy, orderDirection, search } = query;
+	const order = orderDirection === 'asc' ? 1 : -1;
+
+	const aggregateSet = [
+		{
+			$lookup: {
+				// join
+				from: 'movies',
+				localField: 'movie',
+				foreignField: '_id',
+				as: 'movie'
+			}
+		},
+		{
+			$match: {
+				$or: [
+					{ 'movie.title': new RegExp(search, 'i') },
+					{ watched_at: new RegExp(search, 'i') }
+				],
+				user: user._id
+			}
+		}, // match, search
+		{ $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
+		{
+			$project: {
+				// select only some fields
+				_id: 1,
+				watched_at: 1,
+				movie: 1
+			}
+		}
+	];
+
+	let orderSet = {};
+	if (orderBy) {
+		const orderByParsed = JSON.parse(orderBy);
+		orderSet = {
+			...orderSet,
+			$sort: {
+				[orderByObj.field]: order
+			}
+		};
+	} else {
+		orderSet = {
+			...orderSet,
+			$sort: {
+				watched_at: -1
+			}
+		};
+	}
+
+	aggregateSet.push(orderSet);
+
+	try {
+		const [errD, allData] = await to(
+			HistoryModel.aggregate(aggregateSet)
+				.facet({
+					results: [
+						{ $skip: parseInt(page * pageSize) },
+						{ $limit: parseInt(pageSize) }
+					],
+					count: [
+						{
+							$count: 'count'
+						}
+					]
+				})
+				.addFields({
+					count: {
+						$ifNull: [{ $arrayElemAt: ['$count.count', 0] }, 0]
+					}
+				})
+		);
+
+		if (errD) {
+			console.error(errD);
+			res.status(500).send();
+		}
+
+		return res.json(allData[0]);
+	} catch (error) {
+		console.error('historyRoutes', error);
+		res.status(500).send();
+	}
+});
 
 router.get('/:id', jwt, async function(req, res) {
   const { params } = req;
