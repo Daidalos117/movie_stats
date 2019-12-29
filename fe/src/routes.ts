@@ -38,9 +38,6 @@ const tmdb = {
   }
 }
 
-function withBaseUrl() {
-
-}
 
 export {
   baseApiUrl,

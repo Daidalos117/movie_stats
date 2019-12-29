@@ -26,7 +26,6 @@ export const localStorageRedirectKey = 'redirect_after_login';
 
 const App: React.FC = () => {
   const { userStore, apiStore } = useStores();
-  const { fetchUser } = userStore;
   const { user } = userStore;
   const { token } = apiStore;
 
@@ -34,7 +33,7 @@ const App: React.FC = () => {
     if (token) {
       userStore.fetchUser();
     }
-  }, [token]);
+  }, [token, userStore]);
 
   const loginCallback = (props: RouteComponentProps<Match>) => {
     const { token } = props.match.params;
@@ -82,9 +81,8 @@ const App: React.FC = () => {
                 exact
                 path={`${FE.auth.callback}/:token`}
                 render={(props: RouteComponentProps<Match>) => {
-                  {
-                    loginCallback(props);
-                  }
+                  loginCallback(props);
+
                   return <div />;
                 }}
               />

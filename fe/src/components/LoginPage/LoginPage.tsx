@@ -46,7 +46,7 @@ const LoginPage: React.FC<Props> = props => {
         localStorage.removeItem(localStorageRedirectKey);
       }
     }
-  }, [user]);
+  }, [user, history]);
 
   return (
     <Wrapper>

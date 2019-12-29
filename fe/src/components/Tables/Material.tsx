@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { forwardRef, useRef } from 'react';
+import { forwardRef } from 'react';
 import MaterialTable, {
   Icons,
   MaterialTableProps,
@@ -24,6 +24,9 @@ import DateFnsUtils from '@date-io/luxon';
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 import { DateTime } from 'luxon';
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+import IconButton from '@material-ui/core/IconButton/IconButton';
+import Box from '@material-ui/core/Box';
+import CalendarToday from '@material-ui/icons/CalendarToday';
 
 const tableIcons: Icons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -54,8 +57,8 @@ const Material: React.FC<MaterialTableProps<any>> = ({
   components,
   ...restProps
 }) => {
-  const toolbarRef = useRef();
   const [date, setDate] = useState<string>(DateTime.local().toSQLDate());
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <MaterialTable
@@ -69,21 +72,40 @@ const Material: React.FC<MaterialTableProps<any>> = ({
         ...components,
         Toolbar: props => (
           <div>
-            <MTableToolbar {...props} />
+            <Box display="flex" alignItems="center">
+              <div style={{ width: '95%' }}>
+                <MTableToolbar {...props} />
+              </div>
 
-            <MuiPickersUtilsProvider utils={DateFnsUtils} locale={'cs'}>
-              <DatePicker
-                value={date}
-                format="yyyy-MM-dd"
-                onChange={(dateValue: MaterialUiPickersDate) => {
-                  if (dateValue) {
-                    const sqlDate = dateValue.toSQLDate();
-                    setDate(sqlDate);
-                    props.onSearchChanged(sqlDate);
-                  }
-                }}
-              />
-            </MuiPickersUtilsProvider>
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="back"
+                onClick={() => setIsOpen(true)}
+                style={{}}
+              >
+                <CalendarToday />
+              </IconButton>
+            </Box>
+
+            <Box display="none">
+              <MuiPickersUtilsProvider utils={DateFnsUtils} locale={'cs'}>
+                <DatePicker
+                  value={date}
+                  format="yyyy-MM-dd"
+                  onChange={(dateValue: MaterialUiPickersDate) => {
+                    if (dateValue) {
+                      const sqlDate = dateValue.toSQLDate();
+                      setDate(sqlDate);
+                      props.onSearchChanged(sqlDate);
+                    }
+                  }}
+                  open={isOpen}
+                  onOpen={() => setIsOpen(true)}
+                  onClose={() => setIsOpen(false)}
+                />
+              </MuiPickersUtilsProvider>
+            </Box>
           </div>
         )
       }}
