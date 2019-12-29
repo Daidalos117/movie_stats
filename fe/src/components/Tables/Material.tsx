@@ -1,6 +1,10 @@
-import React from 'react';
-import { forwardRef } from 'react';
-import MaterialTable, { Icons, MaterialTableProps } from 'material-table';
+import React, { useState } from 'react';
+import { forwardRef, useRef } from 'react';
+import MaterialTable, {
+  Icons,
+  MaterialTableProps,
+  MTableToolbar
+} from 'material-table';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Check from '@material-ui/icons/Check';
@@ -16,6 +20,10 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import DateFnsUtils from '@date-io/luxon';
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
+import { DateTime } from 'luxon';
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 
 const tableIcons: Icons = {
   Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -41,16 +49,47 @@ const tableIcons: Icons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const History: React.FC<MaterialTableProps<any>> = ({options, ...restProps}) => (
-  <MaterialTable
-    options={{
-      ...options,
-      debounceInterval: 500
-    }}
-    icons={tableIcons}
-    title=''
-    {...restProps}
-  />
-);
+const Material: React.FC<MaterialTableProps<any>> = ({
+  options,
+  components,
+  ...restProps
+}) => {
+  const toolbarRef = useRef();
+  const [date, setDate] = useState<string>(DateTime.local().toSQLDate());
 
-export default History;
+  return (
+    <MaterialTable
+      options={{
+        ...options,
+        debounceInterval: 500
+      }}
+      icons={tableIcons}
+      title=""
+      components={{
+        ...components,
+        Toolbar: props => (
+          <div>
+            <MTableToolbar {...props} />
+
+            <MuiPickersUtilsProvider utils={DateFnsUtils} locale={'cs'}>
+              <DatePicker
+                value={date}
+                format="yyyy-MM-dd"
+                onChange={(dateValue: MaterialUiPickersDate) => {
+                  if (dateValue) {
+                    const sqlDate = dateValue.toSQLDate();
+                    setDate(sqlDate);
+                    props.onSearchChanged(sqlDate);
+                  }
+                }}
+              />
+            </MuiPickersUtilsProvider>
+          </div>
+        )
+      }}
+      {...restProps}
+    />
+  );
+};
+
+export default Material;
