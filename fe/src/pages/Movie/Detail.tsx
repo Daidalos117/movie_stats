@@ -13,16 +13,9 @@ import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import MaterialTable from 'components/Tables/Material';
 import { fromISO } from '../../helpers/formatDate';
-import {
-  BgImg,
-  Header,
-  HeaderBg,
-  HeadingContainer,
-  HeadingMeta,
-  RestOfPage
-} from './styled';
+import { RestOfPage } from './styled';
 import Layout from 'components/Layout/Layout';
-import StarIcon from '@material-ui/icons/Star';
+import DocumentHeader from 'components/DocumentHeader/DocumentHeader';
 
 interface Props {}
 
@@ -48,52 +41,15 @@ const Detail: React.FC<Props> = () => {
 
     return (
       <>
-        <Header>
-          {tmdbMovie ? (
-            <BgImg
-              src={`${tmdb.image.base}${tmdbMovie.backdrop_path}`}
-              alt="movie poster"
-            />
-          ) : (
-            <Loading />
-          )}
-          <HeaderBg />
-          <Layout>
-            <HeadingContainer>
-              <Typography variant="h2">{movie.title}</Typography>
-              {tmdbMovie && (
-                <HeadingMeta>
-                  <span>
-                    {tmdbMovie.genres
-                      .map((genre: any) => genre.name)
-                      .join(', ')}
-                  </span>
-                  <span>
-                    <StarIcon color="primary" fontSize="inherit" className="star-icon" />
-                    {tmdbMovie.vote_average}
-                  </span>
-
-                  <span>
-                    <a
-                      href={`https://www.themoviedb.org/movie/${tmdbMovie.id}`}
-                      target="_blank"
-                    >
-                      TMDB
-                    </a>
-                  </span>
-                  <span>
-                    <a
-                      href={`https://www.imdb.com/title/${tmdbMovie.imdb_id}`}
-                      target="_blank"
-                    >
-                      IMDB
-                    </a>
-                  </span>
-                </HeadingMeta>
-              )}
-            </HeadingContainer>
-          </Layout>
-        </Header>
+        <DocumentHeader
+          title={movie.title}
+          backdropPath={tmdbMovie && tmdbMovie.backdrop_path}
+          id={tmdbMovie && tmdbMovie.id}
+          imdbId={tmdbMovie && tmdbMovie.imdb_id}
+          voteAverage={tmdbMovie && tmdbMovie.vote_average}
+          genres={tmdbMovie && tmdbMovie.genres}
+          menuBack={`/${FE.movie.index}`}
+        />
 
         <RestOfPage>
           <Layout>
