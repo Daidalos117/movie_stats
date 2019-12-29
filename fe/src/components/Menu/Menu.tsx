@@ -3,8 +3,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import ArrowBack from '@material-ui/icons/ArrowBack';
 import Box from '@material-ui/core/Box';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
@@ -26,6 +24,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
+const StyledButton = styled(Button)`
+  color: white;
+ 
+`;
+
 const Menu: React.FC<Props> = () => {
   const { userStore, uiStore } = useStores();
   const { user } = userStore;
@@ -38,10 +41,10 @@ const Menu: React.FC<Props> = () => {
           <Box display="flex" justifyContent="space-between" alignItems="center">
             <Box display="flex"  alignItems="center">
               <StyledLink to={`/${FE.movie.index}`}>
-                <Button>Movies</Button>
+                <StyledButton>Movies</StyledButton>
               </StyledLink>
               <StyledLink to={`/${FE.show.index}`}>
-                <Button>Shows</Button>
+                <StyledButton>Shows</StyledButton>
               </StyledLink>
             </Box>
 
