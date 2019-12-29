@@ -26,7 +26,7 @@ import StarIcon from '@material-ui/icons/Star';
 
 interface Props {}
 
-const Detail: React.FC<Props> = props => {
+const Detail: React.FC<Props> = () => {
   let { id } = useParams();
   const { uiStore } = useStores();
   const { data: movie, error } = useSWR(
@@ -40,7 +40,7 @@ const Detail: React.FC<Props> = props => {
   );
 
   uiStore.menuBack = `/${FE.movie.index}`;
-  console.log(tmdbMovie);
+
   const renderContent = () => {
     if (!movie) {
       return <Loading />;
