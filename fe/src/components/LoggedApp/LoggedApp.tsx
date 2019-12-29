@@ -13,22 +13,25 @@ const LoggedApp: React.FC<Props> = () => {
   return (
     <>
       <Menu />
-      <Layout>
-        <Suspense fallback={<Loading />}>
-          <Switch>
-            <Route exact path={FE.index}>
-              <MovieHistory />
-            </Route>
-            <Route exact path={`/${FE.movie.index}`}>
-              <MovieHistory />
-            </Route>
 
-            <Route exact path={`/${FE.movie.index}/:id`}>
-              <HistoryDetail />
-            </Route>
-          </Switch>
-        </Suspense>
-      </Layout>
+      <Suspense fallback={<Loading />}>
+        <Switch>
+          <Route exact path={FE.index}>
+            <Layout>
+              <MovieHistory />
+            </Layout>
+          </Route>
+          <Route exact path={`/${FE.movie.index}`}>
+            <Layout>
+              <MovieHistory />
+            </Layout>
+          </Route>
+
+          <Route exact path={`/${FE.movie.index}/:id`}>
+            <HistoryDetail />
+          </Route>
+        </Switch>
+      </Suspense>
     </>
   );
 };
