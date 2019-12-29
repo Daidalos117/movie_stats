@@ -7,12 +7,13 @@ import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import { red } from '@material-ui/core/colors';
+import { ThemeProvider } from 'styled-components';
 
 const generalTheme = {
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: red["700"]
+      main: red['700']
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     }
@@ -40,10 +41,15 @@ export const themes = {
 const CustomTheme: React.FC = ({ children }) => {
   const { uiStore } = useStores();
   const { theme: actualTheme } = uiStore;
+  const themeObj = actualTheme ? lightTheme : darkTheme;
 
-  const theme: Theme = createMuiTheme(actualTheme ? lightTheme : darkTheme);
+  const theme: Theme = createMuiTheme(themeObj);
 
-  return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
+  return (
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </MuiThemeProvider>
+  );
 };
 
 export default observer(CustomTheme);

@@ -12,8 +12,17 @@ import { tmdb } from 'routes';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import MaterialTable from 'components/Tables/Material';
-import { DateTime } from 'luxon';
-import {fromISO} from "../../helpers/formatDate";
+import { fromISO } from '../../helpers/formatDate';
+import {
+  BgImg,
+  Header,
+  HeaderBg,
+  HeadingContainer,
+  HeadingMeta,
+  RestOfPage
+} from './styled';
+import Layout from 'components/Layout/Layout';
+import StarIcon from '@material-ui/icons/Star';
 
 interface Props {}
 
@@ -31,7 +40,7 @@ const Detail: React.FC<Props> = props => {
   );
 
   uiStore.menuBack = `/${FE.movie.index}`;
-
+  console.log(tmdbMovie);
   const renderContent = () => {
     if (!movie) {
       return <Loading />;
@@ -39,50 +48,87 @@ const Detail: React.FC<Props> = props => {
 
     return (
       <>
-        <Grid container spacing={4}>
-          <Grid item xs={6}>
-            {tmdbMovie ? (
-              <img
-                src={`${tmdb.image.base}${tmdbMovie.backdrop_path}`}
-                alt="movie poster"
-              />
-            ) : (
-              <Loading />
-            )}
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h3">{movie.title}</Typography>
+        <Header>
+          {tmdbMovie ? (
+            <BgImg
+              src={`${tmdb.image.base}${tmdbMovie.backdrop_path}`}
+              alt="movie poster"
+            />
+          ) : (
+            <Loading />
+          )}
+          <HeaderBg />
+          <Layout>
+            <HeadingContainer>
+              <Typography variant="h2">{movie.title}</Typography>
+              {tmdbMovie && (
+                <HeadingMeta>
+                  <span>
+                    {tmdbMovie.genres
+                      .map((genre: any) => genre.name)
+                      .join(', ')}
+                  </span>
+                  <span>
+                    <StarIcon color="primary" fontSize="inherit" className="star-icon" />
+                    {tmdbMovie.vote_average}
+                  </span>
+
+                  <span>
+                    <a
+                      href={`https://www.themoviedb.org/movie/${tmdbMovie.id}`}
+                      target="_blank"
+                    >
+                      TMDB
+                    </a>
+                  </span>
+                  <span>
+                    <a
+                      href={`https://www.imdb.com/title/${tmdbMovie.imdb_id}`}
+                      target="_blank"
+                    >
+                      IMDB
+                    </a>
+                  </span>
+                </HeadingMeta>
+              )}
+            </HeadingContainer>
+          </Layout>
+        </Header>
+
+        <RestOfPage>
+          <Layout>
             <Box mt={2}>
               {tmdbMovie && tmdbMovie.overview && (
                 <Typography>{tmdbMovie.overview}</Typography>
               )}
             </Box>
-          </Grid>
-        </Grid>
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <MaterialTable
-              columns={[
-                {
-                  title: 'Date',
-                  field: 'watched_at',
-                  render: rowData =>
-                    fromISO(rowData.watched_at).toFormat('dd.M.yyyy')
-                },
-                {
-                  title: 'Time',
-                  field: 'watched_at',
-                  render: rowData =>
-                    fromISO(rowData.watched_at).toFormat('HH:mm')
-                }
-              ]}
-              options={{
-                sorting: true
-              }}
-              data={movie.histories}
-            />
-          </Grid>
-        </Grid>
+
+            <Grid container spacing={4}>
+              <Grid item xs={12}>
+                <MaterialTable
+                  columns={[
+                    {
+                      title: 'Date',
+                      field: 'watched_at',
+                      render: rowData =>
+                        fromISO(rowData.watched_at).toFormat('dd.M.yyyy')
+                    },
+                    {
+                      title: 'Time',
+                      field: 'watched_at',
+                      render: rowData =>
+                        fromISO(rowData.watched_at).toFormat('HH:mm')
+                    }
+                  ]}
+                  options={{
+                    sorting: true
+                  }}
+                  data={movie.histories}
+                />
+              </Grid>
+            </Grid>
+          </Layout>
+        </RestOfPage>
       </>
     );
   };
