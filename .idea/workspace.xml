@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be/routes/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/routes/history.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/be/routes/movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/be/routes/movie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/components/Tables/Movies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/Tables/Movies.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/pages/Movie/History.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/pages/Movie/History.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/HistoryStore.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/store.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/be/routes/movie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="189" column="3" selection-start-line="189" selection-start-column="3" selection-end-line="189" selection-end-column="3" />
+            <state relative-caret-position="-415">
+              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
             </state>
           </provider>
         </entry>
@@ -68,30 +61,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/src/components/Tables/Movies.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-715">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -103,7 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>consol</find>
       <find>logger</find>
       <find>res</find>
       <find>response</find>
@@ -133,6 +101,7 @@
       <find>historyStore</find>
       <find>traktApi</find>
       <find>ObjectId</find>
+      <find>consol</find>
     </findStrings>
     <replaceStrings>
       <replace>const</replace>
@@ -388,7 +357,7 @@
       <workItem from="1577042995884" duration="6416000" />
       <workItem from="1577192816491" duration="8807000" />
       <workItem from="1577624424498" duration="13204000" />
-      <workItem from="1578852188843" duration="1160000" />
+      <workItem from="1578852188843" duration="2468000" />
     </task>
     <task id="LOCAL-00001" summary="Initial">
       <created>1572249842016</created>
@@ -719,17 +688,31 @@
       <option name="project" value="LOCAL" />
       <updated>1577649757214</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Movies BE api">
+      <created>1578853433778</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1578853433779</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Grouping">
+      <created>1578854327049</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1578854327049</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148173000" />
+    <option name="totallyTimeSpent" value="149481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22389127" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22389127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -745,9 +728,9 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" visible="true" weight="0.38329238" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" weight="0.38329238" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50143063" side_tool="true" weight="0.32923833" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" weight="0.27552277" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" visible="true" weight="0.27518427" />
       <window_info anchor="bottom" id="File Transfer" order="15" weight="0.32923833" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -821,8 +804,6 @@
       <path value="$PROJECT_DIR$/be" />
       <path value="$PROJECT_DIR$/fe" />
     </ignored-roots>
-    <MESSAGE value="Testing new now.json" />
-    <MESSAGE value="Refactor and npm" />
     <MESSAGE value="SOme new settings" />
     <MESSAGE value="Edit for jwt_token" />
     <MESSAGE value="Back jwt token" />
@@ -846,7 +827,9 @@
     <MESSAGE value="Renamed movies" />
     <MESSAGE value="Some nice touches" />
     <MESSAGE value="Menu links color white" />
-    <option name="LAST_COMMIT_MESSAGE" value="Menu links color white" />
+    <MESSAGE value="Movies BE api" />
+    <MESSAGE value="Grouping" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grouping" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/be/.env">
@@ -1147,16 +1130,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/be/models/ShowsModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-176">
@@ -1171,13 +1144,6 @@
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/be/routes/history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -1198,10 +1164,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/components/Menu/Menu.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/routes/history.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/be/routes/movie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="189" column="3" selection-start-line="189" selection-start-column="3" selection-end-line="189" selection-end-column="3" />
+        <state relative-caret-position="-415">
+          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
         </state>
       </provider>
     </entry>
