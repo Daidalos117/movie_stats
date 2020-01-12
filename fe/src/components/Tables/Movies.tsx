@@ -5,25 +5,25 @@ import { observer } from 'mobx-react';
 import RemoveRedEye from '@material-ui/icons/RemoveRedEye';
 import api from 'api/backend';
 import { API, FE } from 'routes';
-import { History as HistoryType } from 'stores/HistoryStore';
+import { History as HistoryType } from 'stores/MoviesStore';
 import { useHistory } from 'react-router';
 import { fromISO } from 'helpers/formatDate';
 
 const Movies: React.FC = () => {
-  const { historyStore, uiStore } = useStores();
+  const { moviesStore, uiStore } = useStores();
   const history = useHistory();
   const tableRef = useRef(null);
   uiStore.menuBack = null;
 
   useEffect(() => {
-    historyStore.tableRef = tableRef;
+    moviesStore.tableRef = tableRef;
   }, []);
 
   return (
     <div>
       <Material
         title="Movies History"
-        tableRef={historyStore.tableRef}
+        tableRef={moviesStore.tableRef}
         columns={[
           {
             title: 'Movie',

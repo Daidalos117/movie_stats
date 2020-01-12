@@ -6,11 +6,12 @@ const API = {
     login: 'auth'
   },
   movie: {
-    index: 'movie'
+    index: 'movie',
+    sync: 'sync'
   },
   history: {
     index: 'history',
-    sync: 'sync'
+
   }
 };
 

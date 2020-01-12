@@ -1,8 +1,9 @@
 // src/stores/theme-store.tsx
-import { action, runInAction } from 'mobx';
+import {action, observable, runInAction} from 'mobx';
 import { ApiStore } from './ApiStore';
 import { stores } from './store';
-import { History } from './HistoryStore';
+import {API} from "../routes";
+import {RefObject} from "react";
 
 export interface Movie {
   _id: string;
@@ -21,8 +22,17 @@ export interface Movie {
 
 type Movies = Movie[];
 
+export interface History {
+  watched_at: string;
+  movie: Movie;
+}
+
+type Histories = History[];
+
 class MoviesStore extends ApiStore<Movies> {
   endpoint = 'movie';
+
+  @observable tableRef: RefObject<any> | null = null;
 
   @action
   async fetchMovies() {
@@ -36,6 +46,18 @@ class MoviesStore extends ApiStore<Movies> {
       }
     });
   }
+
+  syncData = async () => {
+    const { apiStore } = stores;
+
+    const response = await apiStore.fetchData<Histories>(`${this.endpoint}/${API.movie.sync}`);
+
+    return runInAction(() => {
+      return response;
+    });
+  }
+
+
 }
 
 export { MoviesStore };

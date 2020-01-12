@@ -8,9 +8,9 @@ import { observer } from 'mobx-react';
 import HistoryTable from 'components/Tables/Movies';
 
 const History: React.FC = () => {
-  const { userStore, historyStore } = useStores();
+  const { userStore, moviesStore } = useStores();
   const history = useHistory();
-  const {  syncData, tableRef } = historyStore;
+  const { syncData, tableRef } = moviesStore;
 
   useEffect(() => {
     if (!userStore.user) {
