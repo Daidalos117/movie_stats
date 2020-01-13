@@ -6,14 +6,16 @@ interface Props {
   withoutPadding?: boolean;
 }
 
-const StyledGrid = styled(Grid)<Props>`
-  padding: ${props => props.withoutPadding ? '0' : '3rem 2rem'};
+const StyledGrid = styled(({ withoutPadding, ...restProps }) => (
+  <Grid {...restProps} />
+))<Props>`
+  padding: ${props => (props.withoutPadding ? '0' : '3rem 2rem')};
   position: relative;
 `;
 
 const Layout: React.FC<Props> = ({ children, withoutPadding }) => (
   <>
-    <Grid container justify="center" style={{height: '100%'}}>
+    <Grid container justify="center" style={{ height: '100%' }}>
       <StyledGrid item xs={12} lg={10} md={10} withoutPadding={withoutPadding}>
         {children}
       </StyledGrid>
