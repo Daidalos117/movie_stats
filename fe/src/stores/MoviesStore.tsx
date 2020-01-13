@@ -4,6 +4,7 @@ import { ApiStore } from './ApiStore';
 import { stores } from './store';
 import {API} from "../routes";
 import {RefObject} from "react";
+import {Query} from "material-table";
 
 export interface Movie {
   _id: string;
@@ -29,10 +30,13 @@ export interface History {
 
 type Histories = History[];
 
+
 class MoviesStore extends ApiStore<Movies> {
   endpoint = 'movie';
 
   @observable tableRef: RefObject<any> | null = null;
+
+  @observable query: Query<Movie> | null = null;
 
   @action
   async fetchMovies() {

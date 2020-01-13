@@ -38,7 +38,8 @@ router.get('/', jwt, async function(req, res) {
     { $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
     {
       $group: {
-        _id: '$_id',
+        _id: '$movie.title',
+        title: { $first: '$movie.title' },
         watched_at: { $first: '$watched_at' },
         movie: { $first: '$movie' }
       }
@@ -55,6 +56,7 @@ router.get('/', jwt, async function(req, res) {
 
   let orderSet = {};
   if (orderBy) {
+    const orderByParsed = JSON.parse(orderBy);
     orderSet = {
       ...orderSet,
       $sort: {
@@ -127,46 +129,41 @@ router.get('/sync', jwt, async function(req, res) {
     if (response.data) {
       const { data } = response;
       //if(!data.length) res.response(204);
-      const newData = data.map(history => {
-        HistoryModel.find({ watched_at: history.watched_at }, function(
-          err,
-          data
-        ) {
-          if (data && data.length > 0) return;
+      const newData = [];
+      for (const history of data) {
+        let [errH, foundHistory] = await to(
+          HistoryModel.find({ watched_at: history.watched_at })
+        );
+        if (errH) console.error('errH', errH);
+        if (foundHistory && foundHistory.length > 0) return;
+        const { movie, ...restHistory } = history;
+        let [errM, foundMovie] = await to(
+          MovieModel.find({ 'ids.trakt': movie.ids.trakt })
+        );
+        if (errM) console.error('errM', errM);
+        let movieId = foundMovie.length && foundMovie[0]._id;
 
-          const { movie, ...restHistory } = history;
+        if (!foundMovie.length) {
+          let newMovie = new MovieModel({ ...movie });
+          let [errSM, savedMovie] = await to(newMovie.save());
+          if (errSM) console.error('errSM', errSM);
+          movieId = savedMovie._id;
+        }
 
-          MovieModel.find({ 'ids.trakt': movie.ids.trakt }, function(
-            err,
-            foundMovie
-          ) {
-            let movieId = foundMovie.length && foundMovie[0]._id;
+        console.log(movie.title);
+        console.table(foundMovie);
 
-            if (!foundMovie.length) {
-              let newMovie = new MovieModel({ ...movie });
-              savedMovie = newMovie.save(function(e, savedMovie) {
-                movieId = savedMovie._id;
-                const newHistory = new HistoryModel({
-                  ...restHistory,
-                  movie: movieId,
-                  user: user._id
-                });
-
-                newHistory.save();
-              });
-            } else {
-              const newHistory = new HistoryModel({
-                ...restHistory,
-                movie: movieId,
-                user: user._id
-              });
-
-              newHistory.save();
-            }
-          });
+        const newHistory = new HistoryModel({
+          ...restHistory,
+          movie: movieId,
+          user: user._id
         });
-      });
-      res.send(200, newData);
+
+        let [errNH, savedHistory] = await to(newHistory.save());
+        if (errNH) console.error('errNH', errNH);
+        newData.push(savedHistory);
+      }
+      res.status(200).send(newData);
     }
   }
 
@@ -195,6 +192,7 @@ router.get('/sync', jwt, async function(req, res) {
         const countIntems =
           headers['X-Pagination-Item-Count'] ||
           headers['x-pagination-item-count'];
+
         fetch({ ...params, limit: countIntems });
       });
   }

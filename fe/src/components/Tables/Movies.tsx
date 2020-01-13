@@ -14,6 +14,7 @@ const Movies: React.FC = () => {
   const history = useHistory();
   const tableRef = useRef(null);
   uiStore.menuBack = null;
+  const { query: storeQuery } = moviesStore;
 
   useEffect(() => {
     moviesStore.tableRef = tableRef;
@@ -52,10 +53,20 @@ const Movies: React.FC = () => {
         data={query =>
           new Promise(async resolve => {
             const url = API.movie.index;
+            let response;
 
-            const response = await api(url, {
-              params: query
-            });
+            if (storeQuery) {
+              response = await api(url, {
+                params: storeQuery
+              });
+              moviesStore.query = query;
+            } else {
+              response = await api(url, {
+                params: query
+              });
+              moviesStore.query = query;
+            }
+
 
             resolve({
               data: response.data.results,
@@ -66,6 +77,9 @@ const Movies: React.FC = () => {
         }
         onRowClick={(event, rowData) => {
           history.push(`${FE.movie.index}/${rowData.movie._id}`);
+        }}
+        onSearchChange={(searchText: string) => {
+          console.log(searchText, 'search');
         }}
       />
     </div>
