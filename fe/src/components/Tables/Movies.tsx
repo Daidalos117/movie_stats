@@ -50,7 +50,7 @@ const Movies: React.FC = () => {
           actionsColumnIndex: -1,
           pageSize: 20,
           pageSizeOptions: [20, 50, 200],
-          searchText: storeQuery.search,
+          searchText: (storeQuery && storeQuery.search) || '',
         }}
         data={query =>
           new Promise(async resolve => {
