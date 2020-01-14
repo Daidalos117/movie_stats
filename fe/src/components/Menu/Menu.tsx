@@ -30,9 +30,8 @@ const StyledButton = styled(Button)`
 `;
 
 const Menu: React.FC<Props> = () => {
-  const { userStore, uiStore } = useStores();
+  const { userStore } = useStores();
   const { user } = userStore;
-  const { menuBack } = uiStore;
 
   return (
     <AppBar position="static">

@@ -18,7 +18,8 @@ const Movies: React.FC = () => {
 
   useEffect(() => {
     moviesStore.tableRef = tableRef;
-  }, []);
+  }, [moviesStore]);
+
 
   return (
     <div>

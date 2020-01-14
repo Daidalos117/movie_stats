@@ -76,6 +76,7 @@ const DocumentHeader: React.FC<Props> = ({
                   <a
                     href={`https://www.themoviedb.org/movie/${id}`}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     TMDB
                   </a>
@@ -87,6 +88,7 @@ const DocumentHeader: React.FC<Props> = ({
                   <a
                     href={`https://www.imdb.com/title/${imdbId}`}
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     IMDB
                   </a>

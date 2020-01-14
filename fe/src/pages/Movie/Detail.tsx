@@ -8,7 +8,6 @@ import { useParams } from 'react-router';
 import Loading from 'components/Loading/Loading';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { tmdb } from 'routes';
 import { useStores } from '../../stores/store';
 import { observer } from 'mobx-react';
 import MaterialTable from 'components/Tables/Material';
@@ -22,7 +21,7 @@ interface Props {}
 const Detail: React.FC<Props> = () => {
   let { id } = useParams();
   const { uiStore } = useStores();
-  const { data: movie, error } = useSWR(
+  const { data: movie } = useSWR(
     `${API.movie.index}/${id}`,
     (url: string) => fetcher(url, {}),
     { suspense: true }
