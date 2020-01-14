@@ -21,7 +21,7 @@ router.get('/', jwt, async function(req, res) {
       $lookup: {
         // join
         from: 'movies',
-        localField: 'movie',
+        localField: 'entity',
         foreignField: '_id',
         as: 'movie'
       }
@@ -56,7 +56,6 @@ router.get('/', jwt, async function(req, res) {
 
   let orderSet = {};
   if (orderBy) {
-    const orderByParsed = JSON.parse(orderBy);
     orderSet = {
       ...orderSet,
       $sort: {
@@ -132,7 +131,7 @@ router.get('/sync', jwt, async function(req, res) {
       const newData = [];
       for (const history of data) {
         let [errH, foundHistory] = await to(
-          HistoryModel.find({ watched_at: history.watched_at })
+          HistoryModel.find({ watched_at: history.watched_at, entityType: 1 })
         );
         if (errH) console.error('errH', errH);
         if (foundHistory && foundHistory.length > 0) return;
@@ -150,12 +149,10 @@ router.get('/sync', jwt, async function(req, res) {
           movieId = savedMovie._id;
         }
 
-        console.log(movie.title);
-        console.table(foundMovie);
-
         const newHistory = new HistoryModel({
           ...restHistory,
-          movie: movieId,
+          entity: movieId,
+          entityType: 1,
           user: user._id
         });
 
@@ -168,7 +165,7 @@ router.get('/sync', jwt, async function(req, res) {
   }
 
   const [errorH, historyFind] = await to(
-    HistoryModel.findOne({ user: user._id }).sort({ watched_at: -1 })
+    HistoryModel.findOne({ user: user._id , entityType: 1 }).sort({ watched_at: -1 })
   );
 
   const params = {};
@@ -216,7 +213,7 @@ router.get('/:id', jwt, async function(req, res) {
           let: { movie_id: '$_id' },
           as: 'histories',
           pipeline: [
-            { $match: { $expr: { $eq: ['$movie', '$$movie_id'] } } },
+            { $match: { $expr: { $eq: ['$entity', '$$movie_id'] } } },
             { $sort: { watched_at: -1 } }
           ]
         }
