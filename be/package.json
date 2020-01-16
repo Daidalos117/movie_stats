@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "listen": "nodemon --inspect ./bin/www",
-    "test": "nyc _mocha --timeout 10000 --exit --report lcovonly -- -R spec",
-    "lint": "eslint --fix --config .eslintrc.json \"**/*.js\""
   },
   "dependencies": {
     "axios": "^0.19.0",
