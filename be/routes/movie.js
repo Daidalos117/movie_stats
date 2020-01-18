@@ -7,6 +7,7 @@ const jwt = require('../middlewares/jwt');
 const to = require('await-to-js').default;
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
+const Long = require('mongodb').Long;
 
 router.get('/', jwt, async function(req, res) {
   const { user } = req;
@@ -126,16 +127,17 @@ router.get('/sync', jwt, async function(req, res) {
 
     if (response.data) {
       const { data } = response;
-      //if(!data.length) res.response(204);
-			console.table(data);
+      if(!data.length) res.response(204);
+
       const newData = [];
       for (const history of data) {
+				const longTraktId = Long(`${history.id}`); //casting to long cause mongo treats this as double defaultly
         let [errH, foundHistory] = await to(
-          HistoryModel.find({ watched_at: history.watched_at, entityType: 1 })
+          HistoryModel.find({ traktId: longTraktId, entityType: 1 })
         );
         if (errH) console.error('errH', errH);
         if (foundHistory && foundHistory.length > 0) continue;
-        const { movie, ...restHistory } = history;
+        const { movie, id, ...restHistory } = history;
         let [errM, foundMovie] = await to(
           MovieModel.find({ 'ids.trakt': movie.ids.trakt })
         );
@@ -152,6 +154,7 @@ router.get('/sync', jwt, async function(req, res) {
         const newHistory = new HistoryModel({
           ...restHistory,
           entity: movieId,
+          traktId: longTraktId,
           entityType: 1,
           user: user._id
         });
@@ -165,7 +168,9 @@ router.get('/sync', jwt, async function(req, res) {
   }
 
   const [errorH, historyFind] = await to(
-    HistoryModel.findOne({ user: user._id , entityType: 1 }).sort({ watched_at: -1 })
+    HistoryModel.findOne({ user: user._id, entityType: 1 }).sort({
+      watched_at: -1
+    })
   );
 
   const params = {};

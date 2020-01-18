@@ -7,6 +7,7 @@ const jwt = require('../middlewares/jwt');
 const to = require('await-to-js').default;
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
+const Long = require('mongodb').Long;
 
 router.get('/', jwt, async function(req, res) {
   const { user } = req;
@@ -128,15 +129,18 @@ router.get('/sync', jwt, async function(req, res) {
       const { data } = response;
       if (!data.length) res.response(204);
 
-      const newData = [];
+      let newDataCount = 0;
       for (const history of data) {
+        const longTraktId = Long(`${history.id}`);
         let [errH, foundHistory] = await to(
-          HistoryModel.find({ watched_at: history.watched_at, entityType: 2 })
+          HistoryModel.find({ traktId: longTraktId, entityType: 2 })
         );
         if (errH) console.error('errH', errH);
-        if (foundHistory && foundHistory.length > 0) continue;
+        if (foundHistory && foundHistory.length > 0) {
+          continue;
+				}
 
-        const { episode, show, ...restHistory } = history;
+        const { episode, show, id, ...restHistory } = history;
         let [errM, foundShow] = await to(
           ShowModel.find({ 'ids.trakt': show.ids.trakt })
         );
@@ -173,15 +177,16 @@ router.get('/sync', jwt, async function(req, res) {
           ...restHistory,
           entity: showId,
           entityType: 2,
+          traktId: longTraktId,
           episode: dbEpisode._id,
           user: user._id
         });
 
         let [errNH, savedHistory] = await to(newHistory.save());
         if (errNH) console.error('errNH', errNH);
-        newData.push(savedHistory);
+				newDataCount += 1;
       }
-      res.status(200).send(newData);
+      return newDataCount;
     }
   }
 
@@ -195,27 +200,45 @@ router.get('/sync', jwt, async function(req, res) {
 
   if (historyFind) {
     params.start_at = historyFind.watched_at;
-    fetch(params);
-  } else {
-    //  initial fetch
-    traktApi
-      .get('sync/history/episodes', {
-        headers: {
-          Authorization: `Bearer ${req.user.trakt.access_token}`
-        },
-        params: {
-          limit: 1
-        }
-      })
-      .then(iRes => {
-        const { headers } = iRes;
-        const countIntems =
-          headers['X-Pagination-Item-Count'] ||
-          headers['x-pagination-item-count'];
-
-        fetch({ ...params, limit: 1 });
-      });
   }
+
+  //  initial fetch
+  traktApi
+    .get('sync/history/episodes', {
+      headers: {
+        Authorization: `Bearer ${req.user.trakt.access_token}`
+      },
+      params: {
+        limit: 1,
+        ...params
+      }
+    })
+    .then(iRes => {
+      const { headers } = iRes;
+      const countIntems =
+        headers['X-Pagination-Item-Count'] ||
+        headers['x-pagination-item-count'];
+      const itemsPerPage = 100;
+      const pages = Math.ceil(countIntems / itemsPerPage);
+
+      let newData = [];
+      for(let page = pages; page > 0; page-- ) {
+				newData.push( fetch({ ...params, limit: itemsPerPage, page }) );
+      }
+      console.table({pages})
+
+      Promise.all(newData).then(function(values) {
+        console.table(values);
+        const newDataCount = values.reduce(function(previous, current) {
+          return (previous + current);
+        }, 0)
+				res.status(200).send({
+					newDataCount
+				})
+      })
+
+
+    });
 });
 
 router.get('/:id', jwt, async function(req, res) {

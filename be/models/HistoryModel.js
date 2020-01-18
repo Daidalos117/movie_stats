@@ -6,6 +6,7 @@ var HistorySchema = new Schema(
   {
     watched_at: { type: String, required: true },
     entity: { type: Schema.ObjectId, ref: 'Movie', required: true },
+		traktId: { type: Number, required: false },
 		/*
      * 1 -> movie
      * 2 -> show
