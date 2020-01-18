@@ -1,7 +1,7 @@
 const express = require('express');
 const traktApi = require('../api/trakt');
 const router = express.Router();
-const MovieModel = require('../models/MovieModel');
+const ShowModel = require('../models/ShowModel');
 const HistoryModel = require('../models/HistoryModel');
 const jwt = require('../middlewares/jwt');
 const to = require('await-to-js').default;
@@ -111,7 +111,7 @@ router.get('/sync', jwt, async function(req, res) {
   async function fetch(params = {}) {
     let response;
     try {
-      response = await traktApi.get('sync/history/movies', {
+      response = await traktApi.get('sync/history/episodes', {
         headers: {
           Authorization: `Bearer ${req.user.trakt.access_token}`
         },
@@ -126,33 +126,54 @@ router.get('/sync', jwt, async function(req, res) {
 
     if (response.data) {
       const { data } = response;
-      //if(!data.length) res.response(204);
-			console.table(data);
+      if (!data.length) res.response(204);
+
       const newData = [];
       for (const history of data) {
         let [errH, foundHistory] = await to(
-          HistoryModel.find({ watched_at: history.watched_at, entityType: 1 })
+          HistoryModel.find({ watched_at: history.watched_at, entityType: 2 })
         );
         if (errH) console.error('errH', errH);
         if (foundHistory && foundHistory.length > 0) continue;
-        const { movie, ...restHistory } = history;
-        let [errM, foundMovie] = await to(
-          MovieModel.find({ 'ids.trakt': movie.ids.trakt })
+
+        const { episode, show, ...restHistory } = history;
+        let [errM, foundShow] = await to(
+          ShowModel.find({ 'ids.trakt': show.ids.trakt })
         );
         if (errM) console.error('errM', errM);
-        let movieId = foundMovie.length && foundMovie[0]._id;
+        let showId = foundShow.length && foundShow[0]._id;
+        let dbShow = foundShow[0];
 
-        if (!foundMovie.length) {
-          let newMovie = new MovieModel({ ...movie });
-          let [errSM, savedMovie] = await to(newMovie.save());
+        if (!foundShow.length) {
+          let newShow = new ShowModel({ ...show });
+          let [errSM, savedShow] = await to(newShow.save());
           if (errSM) console.error('errSM', errSM);
-          movieId = savedMovie._id;
+          showId = savedShow._id;
+          dbShow = savedShow;
+        }
+
+        let dbEpisode = dbShow.episodes.find(function(episode) {
+          if (episode.ids.trakt === episode.ids.trakt) {
+            return episode;
+          }
+        });
+
+        if (!dbEpisode) {
+          let episodeId = ObjectId();
+          dbEpisode = {
+            _id: episodeId,
+            ...episode
+          };
+          dbShow.episodes.push(dbEpisode);
+          const [errUS, updatedShow] = await to(dbShow.save());
+          if (errUS) console.error('errUS', errUS);
         }
 
         const newHistory = new HistoryModel({
           ...restHistory,
-          entity: movieId,
-          entityType: 1,
+          entity: showId,
+          entityType: 2,
+          episode: dbEpisode._id,
           user: user._id
         });
 
@@ -165,7 +186,9 @@ router.get('/sync', jwt, async function(req, res) {
   }
 
   const [errorH, historyFind] = await to(
-    HistoryModel.findOne({ user: user._id , entityType: 1 }).sort({ watched_at: -1 })
+    HistoryModel.findOne({ user: user._id, entityType: 2 }).sort({
+      watched_at: -1
+    })
   );
 
   const params = {};
@@ -176,7 +199,7 @@ router.get('/sync', jwt, async function(req, res) {
   } else {
     //  initial fetch
     traktApi
-      .get('sync/history/movies', {
+      .get('sync/history/episodes', {
         headers: {
           Authorization: `Bearer ${req.user.trakt.access_token}`
         },
@@ -190,7 +213,7 @@ router.get('/sync', jwt, async function(req, res) {
           headers['X-Pagination-Item-Count'] ||
           headers['x-pagination-item-count'];
 
-        fetch({ ...params, limit: countIntems });
+        fetch({ ...params, limit: 1 });
       });
   }
 });

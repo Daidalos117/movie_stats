@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently --kill-others \"npm run start --prefix ./fe\" \"npm run listen --prefix ./be\"",
-    "listen": "npm run dev",
+    "start": "npm run dev",
     "build-local": "npm run build --prefix ./fe && npm run start --prefix ./be"
   },
   "devDependencies": {

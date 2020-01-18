@@ -14,7 +14,7 @@ var HistorySchema = new Schema(
 		/**
      * episode  -> null movie. Optimization for not searching show only by episodeId, so using entityId.
 		 */
-		episode: { type: Schema.ObjectId, ref: 'Episode'},
+		episode: { type: Schema.ObjectId, ref: 'Show.episodes'},
     user: { type: Schema.ObjectId, ref: 'User', required: true }
   },
   { timestamps: true }
