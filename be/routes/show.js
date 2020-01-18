@@ -225,10 +225,8 @@ router.get('/sync', jwt, async function(req, res) {
       for(let page = pages; page > 0; page-- ) {
 				newData.push( fetch({ ...params, limit: itemsPerPage, page }) );
       }
-      console.table({pages})
 
       Promise.all(newData).then(function(values) {
-        console.table(values);
         const newDataCount = values.reduce(function(previous, current) {
           return (previous + current);
         }, 0)
