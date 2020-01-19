@@ -17,12 +17,12 @@ router.get('/', jwt, async function(req, res) {
   const order = orderDirection === 'asc' ? 1 : -1;
 
   const aggregateSet = [
-		{
-			$match: {
-				entityType: 2,
-				user: user._id
-			}
-		},
+    {
+      $match: {
+        entityType: 2,
+        user: user._id
+      }
+    },
     {
       $lookup: {
         // join
@@ -37,23 +37,15 @@ router.get('/', jwt, async function(req, res) {
         $or: [
           { 'show.title': new RegExp(search, 'i') },
           { watched_at: new RegExp(search, 'i') }
-        ],
+        ]
       }
     }, // match, search
-    { $unwind: '$show' }, // movie is returned as array, so unwind makes it normal obj
-    {
-      $group: {
-        _id: '$show.title',
-        title: { $last: '$show.title' },
-        watched_at: { $last: '$watched_at' },
-        show: { $last: '$show' }
-      }
-    }
+    { $unwind: '$show' } // movie is returned as array, so unwind makes it normal obj
   ];
 
   let orderSet = {};
   if (orderBy) {
-		const orderByParsed = JSON.parse(orderBy);
+    const orderByParsed = JSON.parse(orderBy);
     orderSet = {
       ...orderSet,
       $sort: {
@@ -70,6 +62,15 @@ router.get('/', jwt, async function(req, res) {
   }
 
   aggregateSet.push(orderSet);
+
+  aggregateSet.push({
+    $group: {
+      _id: '$show.title',
+      title: { $first: '$show.title' },
+      watched_at: { $last: '$watched_at' },
+      show: { $first: '$show' }
+    }
+  });
 
   try {
     const [errD, allData] = await to(

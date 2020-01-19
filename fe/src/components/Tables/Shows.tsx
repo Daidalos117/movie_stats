@@ -29,7 +29,7 @@ const Shows: React.FC = () => {
         columns={[
           {
             title: 'show',
-            field: 'title'
+            field: 'show.title'
           },
           {
             title: 'Watched at',

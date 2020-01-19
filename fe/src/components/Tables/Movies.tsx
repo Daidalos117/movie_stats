@@ -64,8 +64,6 @@ const Movies: React.FC = () => {
               if (query) moviesStore.query = query;
             }
 
-            console.log({realQuery})
-
             const response = await api(url, {
               params: realQuery
             });
