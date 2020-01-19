@@ -9,6 +9,10 @@ const API = {
     index: 'movie',
     sync: 'sync'
   },
+  show: {
+    index: 'show',
+    sync: 'sync'
+  },
   history: {
     index: 'history',
 
