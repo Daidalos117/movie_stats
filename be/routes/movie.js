@@ -18,6 +18,12 @@ router.get('/', jwt, async function(req, res) {
 
   const aggregateSet = [
     {
+			$match: {
+				entityType: 1,
+				user: user._id
+			}
+    },
+    {
       $lookup: {
         // join
         from: 'movies',
@@ -32,7 +38,6 @@ router.get('/', jwt, async function(req, res) {
           { 'movie.title': new RegExp(search, 'i') },
           { watched_at: new RegExp(search, 'i') }
         ],
-        user: user._id
       }
     }, // match, search
     { $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
