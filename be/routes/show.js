@@ -17,39 +17,36 @@ router.get('/', jwt, async function(req, res) {
   const order = orderDirection === 'asc' ? 1 : -1;
 
   const aggregateSet = [
+		{
+			$match: {
+				entityType: 2,
+				user: user._id
+			}
+		},
     {
       $lookup: {
         // join
-        from: 'movies',
+        from: 'shows',
         localField: 'entity',
         foreignField: '_id',
-        as: 'movie'
+        as: 'show'
       }
     },
     {
       $match: {
         $or: [
-          { 'movie.title': new RegExp(search, 'i') },
+          { 'show.title': new RegExp(search, 'i') },
           { watched_at: new RegExp(search, 'i') }
         ],
-        user: user._id
       }
     }, // match, search
-    { $unwind: '$movie' }, // movie is returned as array, so unwind makes it normal obj
+    { $unwind: '$show' }, // movie is returned as array, so unwind makes it normal obj
     {
       $group: {
-        _id: '$movie.title',
-        title: { $first: '$movie.title' },
+        _id: '$show.title',
+        title: { $first: '$show.title' },
         watched_at: { $first: '$watched_at' },
-        movie: { $first: '$movie' }
-      }
-    },
-    {
-      $project: {
-        // select only some fields
-        _id: 1,
-        watched_at: 1,
-        movie: 1
+        show: { $first: '$show' }
       }
     }
   ];
@@ -138,7 +135,7 @@ router.get('/sync', jwt, async function(req, res) {
         if (errH) console.error('errH', errH);
         if (foundHistory && foundHistory.length > 0) {
           continue;
-				}
+        }
 
         const { episode, show, id, ...restHistory } = history;
         let [errM, foundShow] = await to(
@@ -184,7 +181,7 @@ router.get('/sync', jwt, async function(req, res) {
 
         let [errNH, savedHistory] = await to(newHistory.save());
         if (errNH) console.error('errNH', errNH);
-				newDataCount += 1;
+        newDataCount += 1;
       }
       return newDataCount;
     }
@@ -222,20 +219,18 @@ router.get('/sync', jwt, async function(req, res) {
       const pages = Math.ceil(countIntems / itemsPerPage);
 
       let newData = [];
-      for(let page = pages; page > 0; page-- ) {
-				newData.push( fetch({ ...params, limit: itemsPerPage, page }) );
+      for (let page = pages; page > 0; page--) {
+        newData.push(fetch({ ...params, limit: itemsPerPage, page }));
       }
 
       Promise.all(newData).then(function(values) {
         const newDataCount = values.reduce(function(previous, current) {
-          return (previous + current);
-        }, 0)
-				res.status(200).send({
-					newDataCount
-				})
-      })
-
-
+          return previous + current;
+        }, 0);
+        res.status(200).send({
+          newDataCount
+        });
+      });
     });
 });
 
