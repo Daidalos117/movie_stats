@@ -61,10 +61,11 @@ router.get('/', jwt, async function(req, res) {
 
   let orderSet = {};
   if (orderBy) {
+		const orderByParsed = JSON.parse(orderBy);
     orderSet = {
       ...orderSet,
       $sort: {
-        [orderByObj.field]: order
+        [orderByParsed.field]: order
       }
     };
   } else {

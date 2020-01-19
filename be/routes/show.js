@@ -44,19 +44,20 @@ router.get('/', jwt, async function(req, res) {
     {
       $group: {
         _id: '$show.title',
-        title: { $first: '$show.title' },
-        watched_at: { $first: '$watched_at' },
-        show: { $first: '$show' }
+        title: { $last: '$show.title' },
+        watched_at: { $last: '$watched_at' },
+        show: { $last: '$show' }
       }
     }
   ];
 
   let orderSet = {};
   if (orderBy) {
+		const orderByParsed = JSON.parse(orderBy);
     orderSet = {
       ...orderSet,
       $sort: {
-        [orderByObj.field]: order
+        [orderByParsed.field]: order
       }
     };
   } else {
