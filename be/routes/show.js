@@ -155,8 +155,8 @@ router.get('/sync', jwt, async function(req, res) {
           dbShow = savedShow;
         }
 
-        let dbEpisode = dbShow.episodes.find(function(episode) {
-          if (episode.ids.trakt === episode.ids.trakt) {
+        let dbEpisode = dbShow.episodes.find(function(dbEpisode) {
+          if (dbEpisode.ids.trakt === episode.ids.trakt) {
             return episode;
           }
         });
@@ -241,8 +241,8 @@ router.get('/:id', jwt, async function(req, res) {
   const { id } = params;
   const { user } = req;
 
-  const [errMovie, movie] = await to(
-    MovieModel.aggregate([
+  const [errShow, show] = await to(
+    ShowModel.aggregate([
       {
         $match: {
           _id: ObjectId(id)
@@ -251,11 +251,11 @@ router.get('/:id', jwt, async function(req, res) {
       {
         $lookup: {
           from: 'histories',
-          let: { movie_id: '$_id' },
+          let: { show_id: '$_id' },
           as: 'histories',
           pipeline: [
-            { $match: { $expr: { $eq: ['$entity', '$$movie_id'] } } },
-            { $sort: { watched_at: -1 } }
+            { $match: { $expr: { $eq: ['$entity', '$$show_id'] } } },
+            { $sort: { watched_at: -1 } },
           ]
         }
       },
@@ -270,15 +270,16 @@ router.get('/:id', jwt, async function(req, res) {
         }
       }
     ])
+
   );
 
-  if (errMovie) {
-    res.send(400, errMovie);
+  if (errShow) {
+    res.send(400, errShow);
   }
-  if (movie.length > 0) {
-    res.json(movie[0]);
+  if (show.length > 0) {
+    res.json(show[0]);
   } else {
-    res.send(404);
+    res.sendStatus(404);
   }
 });
 
