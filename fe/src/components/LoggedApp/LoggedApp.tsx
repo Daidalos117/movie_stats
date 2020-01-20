@@ -2,7 +2,8 @@ import React, { Suspense } from 'react';
 import { FE } from 'routes';
 import MovieHistory from 'pages/Movie/History';
 import ShowHistory from 'pages/Show/History';
-import HistoryDetail from 'pages/Movie/Detail';
+import MovieDetail from 'pages/Movie/Detail';
+import ShowDetail from 'pages/Show/Detail';
 import { Switch, Route } from 'react-router';
 import Loading from 'components/Loading/Loading';
 import Menu from 'components/Menu/Menu';
@@ -34,7 +35,11 @@ const LoggedApp: React.FC<Props> = () => {
           </Route>
 
           <Route exact path={`/${FE.movie.index}/:id`}>
-            <HistoryDetail />
+            <MovieDetail />
+          </Route>
+
+          <Route exact path={`/${FE.show.index}/:id`}>
+            <ShowDetail />
           </Route>
         </Switch>
       </Suspense>

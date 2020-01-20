@@ -21,17 +21,21 @@ interface Props {}
 const Detail: React.FC<Props> = () => {
   let { id } = useParams();
   const { uiStore } = useStores();
-  const { data: movie } = useSWR(
-    `${API.movie.index}/${id}`,
+  const { data: movie, error } = useSWR(
+    `${API.show.index}/${id}`,
     (url: string) => fetcher(url, {}),
     { suspense: true }
   );
-  const { data: tmdbMovie } = useSWR(
+
+  const { data: tmdbMovie, error: tmdbError } = useSWR(
     () => `/movie/${movie.ids.tmdb}`,
     tmdbFetcher
   );
 
-  uiStore.menuBack = `/${FE.movie.index}`;
+  if (error) return <div>failed to load</div>;
+  if (tmdbError) return <div>TMDB Error</div>;
+
+  uiStore.menuBack = `/${FE.show.index}`;
 
   const renderContent = () => {
     if (!movie) {

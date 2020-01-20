@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6c52e9bd-55d4-4290-a937-848ec92d60fb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/api/backend.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/api/backend.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fe/src/pages/Show/Detail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/pages/Show/Detail.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fe/src/stores/ShowsStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/ShowsStore.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +29,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/be/routes/show.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-374">
+            <state relative-caret-position="23">
               <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fe/src/pages/Show/Detail.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fe/src/api/backend.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -49,26 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fe/src/stores/ShowsStore.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fe/src/stores/UserStore.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            <state relative-caret-position="23">
+              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -137,8 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/fe/src/components/Tables/History.tsx" />
-        <option value="$PROJECT_DIR$/be/middlewares/jwt.js" />
         <option value="$PROJECT_DIR$/be/now.json" />
         <option value="$PROJECT_DIR$/be/routes/index.js" />
         <option value="$PROJECT_DIR$/be/bin/www" />
@@ -178,16 +192,18 @@
         <option value="$PROJECT_DIR$/be/models/HistoryModel.js" />
         <option value="$PROJECT_DIR$/fe/src/routes.ts" />
         <option value="$PROJECT_DIR$/fe/src/stores/store.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" />
         <option value="$PROJECT_DIR$/fe/src/pages/Show/History.tsx" />
         <option value="$PROJECT_DIR$/be/routes/movie.js" />
         <option value="$PROJECT_DIR$/fe/src/components/Tables/Movies.tsx" />
         <option value="$PROJECT_DIR$/fe/src/components/Tables/Shows.tsx" />
         <option value="$PROJECT_DIR$/be/routes/show.js" />
         <option value="$PROJECT_DIR$/fe/src/stores/ApiStore.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx" />
         <option value="$PROJECT_DIR$/fe/src/stores/ShowsStore.tsx" />
-        <option value="$PROJECT_DIR$/fe/src/stores/UserStore.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/pages/Show/Detail.tsx" />
+        <option value="$PROJECT_DIR$/fe/src/api/backend.ts" />
       </list>
     </option>
   </component>
@@ -255,7 +271,23 @@
               <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
               <item name="fe" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="stores" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="LoggedApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="movie_stats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="movie_stats" type="462c0819:PsiDirectoryNode" />
+              <item name="fe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Show" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -264,7 +296,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="show&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Shows.tsx&#10;mov&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/models/MovieModel.js&#10;UiS&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UiStore.tsx&#10;movie/styled&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/styled.ts&#10;Movie&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/MoviesStore.tsx&#10;Movi&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Movies.tsx&#10;De&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/Detail.tsx&#10;Menu&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Menu/Menu.tsx&#10;Ma&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Material.tsx&#10;imports&#9;ACTION&#9;ImportSettings&#10;format&#9;ACTION&#9;ReformatCode&#10;lay&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Layout/Layout.tsx&#10;Lay&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Layout/Layout.tsx&#10;App&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/App.tsx&#10;menu&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Menu/Menu.tsx&#10;routes&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/routes.ts&#10;Mat&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Material.tsx&#10;Movies&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Movies.tsx&#10;mater&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Material.tsx&#10;movi&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Movies.tsx&#10;Det&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/Detail.tsx&#10;h&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;Mov&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/movie.js&#10;His&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/History.tsx&#10;Histor&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/History.tsx&#10;men&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Menu/Menu.tsx&#10;uiS&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UiStore.tsx&#10;uI&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/node_modules/@material-ui/core/styles/createMuiTheme.d.ts&#10;log&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/LoggedApp/LoggedApp.tsx&#10;rou&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/routes.ts&#10;ui&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UiStore.tsx&#10;lo&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/LoginPage/LoginPage.tsx&#10;api&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/ApiStore.tsx&#10;hist&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;his&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;Deta&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/History/Detail.tsx&#10;histor&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;Hist&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/HistoryStore.tsx&#10;hi&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;history&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/HistoryStore.tsx&#10;app&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/App/App.tsx&#10;be&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be&#10;Api&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/ApiStore.tsx&#10;auth&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/auth.js&#10;User&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/models/UserModel.js&#10;ap&#9;null&#9;null&#10;Use&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UserStore.tsx&#10;Us&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UserStore.tsx&#10;www&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/bin/www" />
+    <property name="SearchEverywhereHistoryKey" value="Shows&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/ShowsStore.tsx&#10;Movie&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/MoviesStore.tsx&#10;show&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Shows.tsx&#10;mov&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/models/MovieModel.js&#10;UiS&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UiStore.tsx&#10;movie/styled&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/styled.ts&#10;Movi&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Movies.tsx&#10;De&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/Detail.tsx&#10;Menu&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Menu/Menu.tsx&#10;Ma&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Material.tsx&#10;imports&#9;ACTION&#9;ImportSettings&#10;format&#9;ACTION&#9;ReformatCode&#10;lay&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Layout/Layout.tsx&#10;Lay&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Layout/Layout.tsx&#10;App&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/App.tsx&#10;menu&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Menu/Menu.tsx&#10;routes&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/routes.ts&#10;Mat&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Material.tsx&#10;Movies&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Movies.tsx&#10;mater&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Material.tsx&#10;movi&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Tables/Movies.tsx&#10;Det&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/Detail.tsx&#10;h&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;Mov&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/movie.js&#10;His&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/History.tsx&#10;Histor&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/Movie/History.tsx&#10;men&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/Menu/Menu.tsx&#10;uiS&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UiStore.tsx&#10;uI&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/node_modules/@material-ui/core/styles/createMuiTheme.d.ts&#10;log&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/LoggedApp/LoggedApp.tsx&#10;rou&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/routes.ts&#10;ui&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UiStore.tsx&#10;lo&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/LoginPage/LoginPage.tsx&#10;api&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/ApiStore.tsx&#10;hist&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;his&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;Deta&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/pages/History/Detail.tsx&#10;histor&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;Hist&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/HistoryStore.tsx&#10;hi&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/history.js&#10;history&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/HistoryStore.tsx&#10;app&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/components/App/App.tsx&#10;be&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be&#10;Api&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/ApiStore.tsx&#10;auth&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/routes/auth.js&#10;User&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/models/UserModel.js&#10;ap&#9;null&#9;null&#10;Use&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UserStore.tsx&#10;Us&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/fe/src/stores/UserStore.tsx&#10;www&#9;FILE&#9;file:///Users/rajchert/Documents/WebServer_Local/movie_stats/be/bin/www" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/fe/src/.env.local&#10;/Users/rajchert/Documents/WebServer_Local/movie_stats/now.json" />
     <property name="ignore_missing_gitignore" value="true" />
@@ -361,14 +393,8 @@
       <workItem from="1578942165795" duration="6698000" />
       <workItem from="1579023734697" duration="4234000" />
       <workItem from="1579381309996" duration="4287000" />
-      <workItem from="1579536386277" duration="120000" />
-    </task>
-    <task id="LOCAL-00015" summary="Fix some things">
-      <created>1573655016918</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1573655016918</updated>
+      <workItem from="1579536386277" duration="650000" />
+      <workItem from="1579546477863" duration="922000" />
     </task>
     <task id="LOCAL-00016" summary="Add styled components to package.json">
       <created>1573662626820</created>
@@ -706,17 +732,24 @@
       <option name="project" value="LOCAL" />
       <updated>1579459083159</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Refactored stores">
+      <created>1579536522224</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1579536522227</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177958000" />
+    <option name="totallyTimeSpent" value="179410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49661016" visible="true" weight="0.21530758" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49661016" visible="true" weight="0.16595136" />
       <window_info id="Structure" order="1" sideWeight="0.50338984" side_tool="true" weight="0.21244635" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -732,9 +765,9 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32923833" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" weight="0.3783784" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.6516452" visible="true" weight="0.37714988" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50143063" side_tool="true" weight="0.32923833" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" visible="true" weight="0.27395576" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4985694" weight="0.27395576" />
       <window_info anchor="bottom" id="File Transfer" order="15" weight="0.32923833" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -818,7 +851,6 @@
       <path value="$PROJECT_DIR$/be" />
       <path value="$PROJECT_DIR$/fe" />
     </ignored-roots>
-    <MESSAGE value="formatDate better" />
     <MESSAGE value="Datepicker" />
     <MESSAGE value="Nice datepicker" />
     <MESSAGE value="Layout changes" />
@@ -843,16 +875,10 @@
     <MESSAGE value="Basic FE show route" />
     <MESSAGE value="Fixed searching, ordering" />
     <MESSAGE value="Show optimalization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show optimalization" />
+    <MESSAGE value="Refactored stores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored stores" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fe/src/components/DateTimePicker/DatePicker.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="60" column="50" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/node_modules/@material-ui/core/SvgIcon/SvgIcon.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -1044,9 +1070,6 @@
     <entry file="file://$PROJECT_DIR$/fe/src/pages/Show/styled.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/pages/Show/Detail.tsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/stores/store.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -1081,24 +1104,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/components/Tables/Movies.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/be/routes/movie.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="51" selection-start-line="51" selection-end-line="58" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1112,10 +1121,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/be/routes/show.js">
+    <entry file="file://$PROJECT_DIR$/fe/src/stores/UserStore.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+        <state relative-caret-position="368">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/stores/ShowsStore.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be/routes/movie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="51" selection-start-line="51" selection-end-line="58" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1131,22 +1154,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fe/src/stores/MoviesStore.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="23">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/stores/ShowsStore.tsx">
+    <entry file="file://$PROJECT_DIR$/be/routes/show.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="23">
+          <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fe/src/stores/UserStore.tsx">
+    <entry file="file://$PROJECT_DIR$/fe/src/components/LoggedApp/LoggedApp.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="291">
+          <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/pages/Show/Detail.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fe/src/api/backend.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
         </state>
       </provider>
     </entry>

@@ -1,8 +1,6 @@
 // src/stores/theme-store.tsx
-import {action, observable, runInAction} from 'mobx';
+import { observable} from 'mobx';
 import { ApiStore } from './ApiStore';
-import { stores } from './store';
-import {API} from "../routes";
 import {RefObject} from "react";
 import {Query} from "material-table";
 

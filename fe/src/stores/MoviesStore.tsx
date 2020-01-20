@@ -1,5 +1,5 @@
 // src/stores/theme-store.tsx
-import {action, observable, runInAction} from 'mobx';
+import { observable, runInAction} from 'mobx';
 import { ApiStore } from './ApiStore';
 import { stores } from './store';
 import {API} from "../routes";
