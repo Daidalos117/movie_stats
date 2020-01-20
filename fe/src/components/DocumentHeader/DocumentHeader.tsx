@@ -14,6 +14,7 @@ import {
 } from './styled';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+import RemoveRedEye from '@material-ui/icons/RemoveRedEye';
 
 interface Props {
   backdropPath?: string | unknown;
@@ -23,6 +24,7 @@ interface Props {
   voteAverage?: number;
   genres?: string[];
   menuBack?: string;
+  seenCount?: number;
 }
 
 const DocumentHeader: React.FC<Props> = ({
@@ -32,7 +34,8 @@ const DocumentHeader: React.FC<Props> = ({
   imdbId,
   voteAverage,
   genres,
-  menuBack
+  menuBack,
+  seenCount
 }) => {
   return (
     <div>
@@ -68,6 +71,13 @@ const DocumentHeader: React.FC<Props> = ({
                     className="star-icon"
                   />
                   {voteAverage}
+                </span>
+              )}
+
+              {seenCount && (
+                <span>
+                  <RemoveRedEye />
+                  {seenCount} x
                 </span>
               )}
 
