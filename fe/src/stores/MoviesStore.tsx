@@ -31,25 +31,13 @@ export interface History {
 type Histories = History[];
 
 
-class MoviesStore extends ApiStore<Movies> {
+class MoviesStore extends ApiStore {
   endpoint = 'movie';
 
   @observable tableRef: RefObject<any> | null = null;
 
   @observable query: Query<Movie> | null = null;
 
-  @action
-  async fetchMovies() {
-    const { apiStore } = stores;
-
-    const response = await apiStore.fetchData<Movies>(this.endpoint);
-
-    runInAction(() => {
-      if (typeof response !== 'boolean') {
-        this.data = response.data;
-      }
-    });
-  }
 
   syncData = async () => {
     const { apiStore } = stores;

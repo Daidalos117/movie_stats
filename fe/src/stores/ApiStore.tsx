@@ -3,12 +3,10 @@ import { baseApiUrl } from 'routes';
 import { AxiosError } from 'axios';
 import api from '../api/backend';
 
-export class ApiStore<T> {
+export class ApiStore {
   localStorageKey: string = 'oath_token';
 
   endpoint: string = baseApiUrl;
-
-  @observable data: T | null = null;
 
   @observable error: null | AxiosError = null;
 

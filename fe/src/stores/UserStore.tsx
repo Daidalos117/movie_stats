@@ -14,7 +14,7 @@ interface User {
   };
 }
 
-class UserStore extends ApiStore<User> {
+class UserStore extends ApiStore {
   endpoint = 'user';
 
   @observable user: null | User = null;

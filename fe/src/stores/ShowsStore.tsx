@@ -31,25 +31,12 @@ export interface History {
 type Histories = History[];
 
 
-class ShowsStore extends ApiStore<Shows> {
+class ShowsStore extends ApiStore {
   endpoint = 'show';
 
   @observable tableRef: RefObject<any> | null = null;
 
   @observable query: Query<Show> | null = null;
-
-  @action
-  async fetchShows() {
-    const { apiStore } = stores;
-
-    const response = await apiStore.fetchData<Shows>(this.endpoint);
-
-    runInAction(() => {
-      if (typeof response !== 'boolean') {
-        this.data = response.data;
-      }
-    });
-  }
 
 
 }
