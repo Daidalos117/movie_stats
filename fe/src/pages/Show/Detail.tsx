@@ -27,13 +27,11 @@ const Detail: React.FC<Props> = () => {
     { suspense: true }
   );
 
-  const { data: tmdbMovie, error: tmdbError } = useSWR(
+  const { data: tmdbShow, error: tmdbError } = useSWR(
     () => `/movie/${movie.ids.tmdb}`,
     tmdbFetcher
   );
-
-  if (error) return <div>failed to load</div>;
-  if (tmdbError) return <div>TMDB Error</div>;
+  if(tmdbError) console.error(tmdbError);
 
   uiStore.menuBack = `/${FE.show.index}`;
 
@@ -44,21 +42,23 @@ const Detail: React.FC<Props> = () => {
 
     return (
       <>
-        <DocumentHeader
-          title={movie.title}
-          backdropPath={tmdbMovie && tmdbMovie.backdrop_path}
-          id={tmdbMovie && tmdbMovie.id}
-          imdbId={tmdbMovie && tmdbMovie.imdb_id}
-          voteAverage={tmdbMovie && tmdbMovie.vote_average}
-          genres={tmdbMovie && tmdbMovie.genres}
-          menuBack={`/${FE.movie.index}`}
-        />
+        {tmdbShow && (
+          <DocumentHeader
+            title={movie.title}
+            backdropPath={tmdbShow && tmdbShow.backdrop_path}
+            id={tmdbShow && tmdbShow.id}
+            imdbId={tmdbShow && tmdbShow.imdb_id}
+            voteAverage={tmdbShow && tmdbShow.vote_average}
+            genres={tmdbShow && tmdbShow.genres}
+            menuBack={`/${FE.movie.index}`}
+          />
+        )}
 
         <RestOfPage>
           <Layout>
             <Box mt={2}>
-              {tmdbMovie && tmdbMovie.overview && (
-                <Typography>{tmdbMovie.overview}</Typography>
+              {tmdbShow && tmdbShow.overview && (
+                <Typography>{tmdbShow.overview}</Typography>
               )}
             </Box>
 

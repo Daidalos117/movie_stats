@@ -40,7 +40,15 @@ router.get('/', jwt, async function(req, res) {
         ]
       }
     }, // match, search
-    { $unwind: '$show' } // movie is returned as array, so unwind makes it normal obj
+    { $unwind: '$show' }, // movie is returned as array, so unwind makes it normal obj,
+		{
+			$group: {
+				_id: '$show.title',
+				title: { $first: '$show.title' },
+				watched_at: { $last: '$watched_at' },
+				show: { $first: '$show' }
+			}
+		}
   ];
 
   let orderSet = {};
@@ -61,16 +69,9 @@ router.get('/', jwt, async function(req, res) {
     };
   }
 
-  aggregateSet.push(orderSet);
 
-  aggregateSet.push({
-    $group: {
-      _id: '$show.title',
-      title: { $first: '$show.title' },
-      watched_at: { $last: '$watched_at' },
-      show: { $first: '$show' }
-    }
-  });
+
+	aggregateSet.push(orderSet);
 
   try {
     const [errD, allData] = await to(
@@ -248,29 +249,37 @@ router.get('/:id', jwt, async function(req, res) {
           _id: ObjectId(id)
         }
       },
+      { $unwind: '$episodes' },
+
       {
         $lookup: {
           from: 'histories',
-          let: { show_id: '$_id' },
+          let: { episode_id: '$episodes._id' },
           as: 'histories',
           pipeline: [
-            { $match: { $expr: { $eq: ['$entity', '$$show_id'] } } },
-            { $sort: { watched_at: -1 } },
+            { $match: { $expr: { $eq: ['$episode', '$$episode_id'] } } },
+            { $sort: { watched_at: -1 } }
           ]
         }
       },
+
       {
-        $match: {
-          'histories.user': user._id
-        }
-      },
-      {
-        $sort: {
-          'histories.watched_at': -1
+        $group: {
+          _id: '$_id',
+          title: { $first: '$title' },
+          year: { $first: '$year' },
+          episodes: {
+            $push: {
+              _id: '$episodes._id',
+              season: '$episodes.season',
+              number: '$episodes.number',
+              title: '$episodes.title',
+              histories: '$histories'
+            }
+          }
         }
       }
     ])
-
   );
 
   if (errShow) {
