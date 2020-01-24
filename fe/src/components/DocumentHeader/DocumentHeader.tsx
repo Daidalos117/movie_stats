@@ -20,7 +20,8 @@ interface Props {
   backdropPath?: string | unknown;
   title: string;
   id?: string;
-  imdbId?: string;
+  imdbLink?: string;
+  tmdbLink?: string;
   voteAverage?: number;
   genres?: string[];
   menuBack?: string;
@@ -31,7 +32,8 @@ const DocumentHeader: React.FC<Props> = ({
   backdropPath,
   title,
   id,
-  imdbId,
+                                           imdbLink,
+                                           tmdbLink,
   voteAverage,
   genres,
   menuBack,
@@ -76,15 +78,15 @@ const DocumentHeader: React.FC<Props> = ({
 
               {seenCount && (
                 <span>
-                  <RemoveRedEye />
-                  {seenCount} x
+                  <RemoveRedEye fontSize="inherit" />&nbsp;
+                  {seenCount}x
                 </span>
               )}
 
-              {id && (
+              {tmdbLink && (
                 <span>
                   <a
-                    href={`https://www.themoviedb.org/movie/${id}`}
+                    href={tmdbLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -93,10 +95,10 @@ const DocumentHeader: React.FC<Props> = ({
                 </span>
               )}
 
-              {imdbId && (
+              {imdbLink && (
                 <span>
                   <a
-                    href={`https://www.imdb.com/title/${imdbId}`}
+                    href={imdbLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

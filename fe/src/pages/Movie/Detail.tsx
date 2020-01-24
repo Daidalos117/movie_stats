@@ -44,10 +44,12 @@ const Detail: React.FC<Props> = () => {
           title={movie.title}
           backdropPath={tmdbMovie && tmdbMovie.backdrop_path}
           id={tmdbMovie && tmdbMovie.id}
-          imdbId={tmdbMovie && tmdbMovie.imdb_id}
+          tmdbLink={`https://www.themoviedb.org/movie/${movie.ids.tmdb}`}
+          imdbLink={ `https://www.imdb.com/title/${movie.ids.imdb}`}
           voteAverage={tmdbMovie && tmdbMovie.vote_average}
           genres={tmdbMovie && tmdbMovie.genres}
           menuBack={`/${FE.movie.index}`}
+          seenCount={movie.histories.length}
         />
 
         <RestOfPage>

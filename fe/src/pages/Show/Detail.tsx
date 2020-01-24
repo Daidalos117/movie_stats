@@ -21,22 +21,24 @@ interface Props {}
 const Detail: React.FC<Props> = () => {
   let { id } = useParams();
   const { uiStore } = useStores();
-  const { data: movie, error } = useSWR(
+  uiStore.menuBack = `/${FE.show.index}`;
+  const { data: show, error } = useSWR(
     `${API.show.index}/${id}`,
     (url: string) => fetcher(url, {}),
     { suspense: true }
   );
 
   const { data: tmdbShow, error: tmdbError } = useSWR(
-    () => `/movie/${movie.ids.tmdb}`,
+    () => `/tv/${show.ids.tmdb}`,
     tmdbFetcher
   );
+
   if(tmdbError) console.error(tmdbError);
 
-  uiStore.menuBack = `/${FE.show.index}`;
+
 
   const renderContent = () => {
-    if (!movie) {
+    if (!show) {
       return <Loading />;
     }
 
@@ -44,10 +46,11 @@ const Detail: React.FC<Props> = () => {
       <>
         {tmdbShow && (
           <DocumentHeader
-            title={movie.title}
+            title={show.title}
             backdropPath={tmdbShow && tmdbShow.backdrop_path}
             id={tmdbShow && tmdbShow.id}
-            imdbId={tmdbShow && tmdbShow.imdb_id}
+            tmdbLink={`https://www.themoviedb.org/tv/${show.ids.tmdb}`}
+            imdbLink={ `https://www.imdb.com/title/${show.ids.imdb}`}
             voteAverage={tmdbShow && tmdbShow.vote_average}
             genres={tmdbShow && tmdbShow.genres}
             menuBack={`/${FE.movie.index}`}
@@ -82,7 +85,7 @@ const Detail: React.FC<Props> = () => {
                   options={{
                     sorting: true
                   }}
-                  data={movie.histories}
+                  data={show.histories}
                 />
               </Grid>
             </Grid>

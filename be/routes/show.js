@@ -268,12 +268,14 @@ router.get('/:id', jwt, async function(req, res) {
           _id: '$_id',
           title: { $first: '$title' },
           year: { $first: '$year' },
+          ids: { $first: '$ids' },
           episodes: {
             $push: {
               _id: '$episodes._id',
               season: '$episodes.season',
               number: '$episodes.number',
               title: '$episodes.title',
+              ids: '$episodes.ids',
               histories: '$histories'
             }
           }
