@@ -41,14 +41,14 @@ router.get('/', jwt, async function(req, res) {
       }
     }, // match, search
     { $unwind: '$show' }, // movie is returned as array, so unwind makes it normal obj,
-		{
-			$group: {
-				_id: '$show.title',
-				title: { $first: '$show.title' },
-				watched_at: { $last: '$watched_at' },
-				show: { $first: '$show' }
-			}
-		}
+    {
+      $group: {
+        _id: '$show.title',
+        title: { $first: '$show.title' },
+        watched_at: { $last: '$watched_at' },
+        show: { $first: '$show' }
+      }
+    }
   ];
 
   let orderSet = {};
@@ -69,9 +69,7 @@ router.get('/', jwt, async function(req, res) {
     };
   }
 
-
-
-	aggregateSet.push(orderSet);
+  aggregateSet.push(orderSet);
 
   try {
     const [errD, allData] = await to(
@@ -283,12 +281,33 @@ router.get('/:id', jwt, async function(req, res) {
       }
     ])
   );
+  const showObj = show[0];
+  const { episodes } = showObj;
+
+  const seasons = episodes.reduce((prev, actual) => {
+    let actualSeason = prev[actual.season];
+    if (!actualSeason) {
+      actualSeason = [];
+    }
+
+    actualSeason[actual.number] = actual;
+
+    prev[actual.season] = actualSeason;
+    return prev;
+  }, {});
+
+  /*  const orderedSeasons = {};
+  Object.keys(seasons).forEach((seasonNumber, index) => {
+		orderedSeasons[seasonNumber] = seasons[seasonNumber]
+  })*/
+
+	showObj.seasons = seasons;
 
   if (errShow) {
     res.send(400, errShow);
   }
   if (show.length > 0) {
-    res.json(show[0]);
+    res.json(showObj);
   } else {
     res.sendStatus(404);
   }
