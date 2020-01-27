@@ -22,7 +22,7 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { Episode, History } from 'stores/ShowsStore';
-
+import { fromISO } from 'helpers/formatDate';
 
 interface Props {}
 
@@ -49,7 +49,8 @@ const Detail: React.FC<Props> = () => {
 
   const { data: tmdbShow, error: tmdbError } = useSWR(
     () => `/tv/${show.ids.tmdb}`,
-    tmdbFetcher
+    tmdbFetcher,
+    {  revalidateOnFocus: false }
   );
   const { episodes, seasons } = show;
 
@@ -94,8 +95,7 @@ const Detail: React.FC<Props> = () => {
                       return (
                         <ListItem button key={watched_at}>
                           <ListItemText
-                            primary={watched_at}
-                            secondary={episode.title}
+                            primary={fromISO(watched_at).toFormat('dd.M.yyyy HH:mm')}
                           />
                         </ListItem>
                       );
