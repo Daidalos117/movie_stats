@@ -211,7 +211,7 @@ router.get('/sync', jwt, async function(req, res) {
         ...params
       }
     })
-    .then(iRes => {
+    .then(async iRes => {
       const { headers } = iRes;
       const countIntems =
         headers['X-Pagination-Item-Count'] ||
@@ -221,7 +221,7 @@ router.get('/sync', jwt, async function(req, res) {
 
       let newData = [];
       for (let page = pages; page > 0; page--) {
-        newData.push(fetch({ ...params, limit: itemsPerPage, page }));
+        newData.push(await fetch({ ...params, limit: itemsPerPage, page }));
       }
 
       Promise.all(newData).then(function(values) {

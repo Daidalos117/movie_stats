@@ -1,8 +1,10 @@
 // src/stores/theme-store.tsx
-import { computed, observable } from 'mobx';
+import {computed, observable, runInAction} from 'mobx';
 import { ApiStore } from './ApiStore';
 import { RefObject } from 'react';
 import { Query } from 'material-table';
+import {stores} from "./store";
+import {API} from "../routes";
 
 interface Ids {
   trakt: number;
@@ -70,6 +72,16 @@ class ShowsStore extends ApiStore {
     (this.openedEpisodes = this.openedEpisodes.filter(
       episode => episode === episodeNumber
     ));
+
+  syncData = async () => {
+    const { apiStore } = stores;
+
+    const response = await apiStore.fetchData<Histories>(`${this.endpoint}/${API.show.sync}`);
+
+    return runInAction(() => {
+      return response;
+    });
+  }
 }
 
 export { ShowsStore };
