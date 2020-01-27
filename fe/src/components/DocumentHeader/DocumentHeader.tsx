@@ -32,8 +32,8 @@ const DocumentHeader: React.FC<Props> = ({
   backdropPath,
   title,
   id,
-                                           imdbLink,
-                                           tmdbLink,
+  imdbLink,
+  tmdbLink,
   voteAverage,
   genres,
   menuBack,
@@ -78,18 +78,15 @@ const DocumentHeader: React.FC<Props> = ({
 
               {seenCount && (
                 <span>
-                  <RemoveRedEye fontSize="inherit" />&nbsp;
+                  <RemoveRedEye fontSize="inherit" />
+                  &nbsp;
                   {seenCount}x
                 </span>
               )}
 
               {tmdbLink && (
                 <span>
-                  <a
-                    href={tmdbLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={tmdbLink} target="_blank" rel="noopener noreferrer">
                     TMDB
                   </a>
                 </span>
@@ -97,11 +94,7 @@ const DocumentHeader: React.FC<Props> = ({
 
               {imdbLink && (
                 <span>
-                  <a
-                    href={imdbLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={imdbLink} target="_blank" rel="noopener noreferrer">
                     IMDB
                   </a>
                 </span>

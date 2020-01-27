@@ -13,16 +13,17 @@ import { observer } from 'mobx-react';
 import { RestOfPage } from './styled';
 import Layout from 'components/Layout/Layout';
 import DocumentHeader from 'components/DocumentHeader/DocumentHeader';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { Episode, History } from 'stores/ShowsStore';
 import { fromISO } from 'helpers/formatDate';
+import Season from 'components/Show/Season';
+import IconButton from '@material-ui/core/IconButton/IconButton';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
 interface Props {}
 
@@ -50,7 +51,7 @@ const Detail: React.FC<Props> = () => {
   const { data: tmdbShow, error: tmdbError } = useSWR(
     () => `/tv/${show.ids.tmdb}`,
     tmdbFetcher,
-    {  revalidateOnFocus: false }
+    { revalidateOnFocus: false }
   );
   const { episodes, seasons } = show;
 
@@ -58,7 +59,6 @@ const Detail: React.FC<Props> = () => {
 
   useEffect(() => {
     // different episode
-
     showsStore.openSeason = null;
   }, [showsStore, id]);
 
@@ -66,53 +66,71 @@ const Detail: React.FC<Props> = () => {
     if (openSeason) {
       const season = seasons[openSeason];
       return (
-        <List component="nav" aria-labelledby="list">
-          {season && season.map((episode: Episode | null) => {
-            if (!episode) return;
-            const { number: episodeNumber, title } = episode;
-            return (
-              <div key={episodeNumber}>
-                <ListItem
-                  button
-                  onClick={() => {
-                    addOpenEpisode(episodeNumber);
-                  }}
-                >
-                  <ListItemText
-                    primary={`${episodeNumber}`}
-                    secondary={title}
-                  />
-                  {openedEpisodes.includes(episodeNumber) ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse
-                  in={openedEpisodes.includes(episodeNumber)}
-                  timeout="auto"
-                  unmountOnExit
-                >
-                  <List component="div" disablePadding>
-                    {episode.histories.map((history: History) => {
-                      const { watched_at } = history;
-                      return (
-                        <ListItem button key={watched_at}>
-                          <ListItemText
-                            primary={fromISO(watched_at).toFormat('dd.M.yyyy HH:mm')}
-                          />
-                        </ListItem>
-                      );
-                    })}
-                  </List>
-                </Collapse>
-              </div>
-            );
-          })}
-        </List>
+        <>
+          <IconButton edge="start" color="inherit" aria-label="back" onClick={() => {
+            showsStore.openSeason = null;
+          }}>
+            <ArrowBack />
+          </IconButton>
+
+          <List component="nav" aria-labelledby="list">
+            {season &&
+              season.map((episode: Episode | null) => {
+                if (!episode) return;
+                const { number: episodeNumber, title } = episode;
+                return (
+                  <div key={episodeNumber}>
+                    <ListItem
+                      button
+                      onClick={() => {
+                        addOpenEpisode(episodeNumber);
+                      }}
+                    >
+                      <ListItemText
+                        primary={`${episodeNumber}`}
+                        secondary={title}
+                      />
+                      {openedEpisodes.includes(episodeNumber) ? (
+                        <ExpandLess />
+                      ) : (
+                        <ExpandMore />
+                      )}
+                    </ListItem>
+
+                    <Collapse
+                      in={openedEpisodes.includes(episodeNumber)}
+                      timeout="auto"
+                      unmountOnExit
+                    >
+                      <List component="div" disablePadding>
+                        {episode.histories.map((history: History) => {
+                          const { watched_at } = history;
+                          return (
+                            <ListItem button key={watched_at}>
+                              <ListItemText
+                                primary={fromISO(watched_at).toFormat(
+                                  'dd.M.yyyy HH:mm'
+                                )}
+                              />
+                            </ListItem>
+                          );
+                        })}
+                      </List>
+                    </Collapse>
+                  </div>
+                );
+              })}
+          </List>
+        </>
       );
     } else {
       return (
         <List component="nav" aria-labelledby="list">
-          {Object.keys(seasons).map((seasonNumber: string, index: number) => (
-            <ListItemText
-              primary={`Season ${seasonNumber}`}
+          {Object.keys(seasons).map((seasonNumber: string) => (
+            <Season
+              seasonNumber={parseInt(seasonNumber)}
+              showId={tmdbShow && tmdbShow.id}
+              key={seasonNumber}
               onClick={() => {
                 showsStore.openSeason = seasonNumber;
               }}
@@ -154,34 +172,6 @@ const Detail: React.FC<Props> = () => {
             <Grid container spacing={4}>
               <Grid item xs={12}>
                 {renderSeasons()}
-                {/*<List component="nav" aria-labelledby="nested-list-subheader">
-                  {Object.keys(seasons).map((seasonNumber: string, index: number) => (
-                    <React.Fragment key={seasonNumber}>
-                      <ListItem button onClick={() => handleClick(seasonNumber)}>
-                        <ListItemText primary={`Season ${seasonNumber}`} />
-                        {openedSeasons[seasonNumber] ? (
-                          <ExpandLess />
-                        ) : (
-                          <ExpandMore />
-                        )}
-                      </ListItem>
-                      <Collapse
-                        in={openedSeasons[seasonNumber]}
-                        timeout="auto"
-                        unmountOnExit
-                      >
-                        <List component="div" disablePadding>
-                          {(seasons as any)[seasonNumber].map((episode: Episode) => (
-                            <ListItem button key={episode.number}>
-                              <ListItemText primary={episode.number} secondary={episode.title} />
-                            </ListItem>
-                          ))}
-
-                        </List>
-                      </Collapse>
-                    </React.Fragment>
-                  ))}
-                </List>*/}
               </Grid>
             </Grid>
           </Layout>

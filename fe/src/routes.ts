@@ -40,9 +40,11 @@ const traktLogin = baseApiUrl + API.auth.login;
 const tmdb = {
   baseUrl: 'https://api.themoviedb.org/3',
   image: {
+    /* https://www.themoviedb.org/talk/5aeaaf56c3a3682ddf0010de */
     base: 'https://image.tmdb.org/t/p/original',
     w780: 'https://image.tmdb.org/t/p/w780',
-    w185: 'https://image.tmdb.org/t/p/w185'
+    w185: 'https://image.tmdb.org/t/p/w185',
+    w300: 'https://image.tmdb.org/t/p/w300'
   }
 };
 
