@@ -41,7 +41,7 @@ passport.use(
     {
       clientID: TRAKT_CLIENT_ID,
       clientSecret: TRAKT_CLIENT_SECRET,
-      callbackURL: 'https://127.0.0.1:8080/api/auth/callback'
+      callbackURL: `${process.env.BE_URL}auth/callback`
     },
     function(accessToken, refreshToken, params, profile, done) {
       // asynchronous verification, for effect...
@@ -122,7 +122,7 @@ router.get(
 			console.log(err)
 		}
 
-    res.redirect(`http://localhost:3000/loginCallback/${req.token}`);
+    res.redirect(`${process.env.FE_URL}loginCallback/${req.token}`);
   }
 );
 

@@ -1,6 +1,0 @@
-{
-  "env": {
-    "MONGODB_URL": "@mongodb_url",
-    "JWT_SECRET": "@jwt_secret"
-  }
-}

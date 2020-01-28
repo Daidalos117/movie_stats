@@ -2,18 +2,43 @@
   "version": 2,
   "env": {
     "MONGODB_URL": "@mongodb_url",
-    "JWT_SECRET": "@jwt_secret"
+    "JWT_SECRET": "@jwt_secret",
+    "TRAKT_CLIENT_ID": "@trakt_client_id",
+    "TRAKT_CLIENT_SECRET": "@trakt_client_secret",
+    "BE_URL": "/api/",
+    "FE_URL": "/"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_TMDB_API_KEY": "@tmdb_api_key",
+      "REACT_APP_TMDB_TOKEN": "@react_app_tmdb_token",
+      "REACT_APP_BE_URL": "/api/",
+      "REACT_APP_FE_URL": "/"
+    }
   },
   "builds": [
-    { "src": "be/app.js", "use": "@now/node" },
+    { "src": "be/app.js", "use": "@now/node@canary" },
     {
       "src": "fe/package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "build" }
+      "config": {
+        "distDir": "build"
+      }
     }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "be/app.js" },
-    { "src": "/(.*)", "dest": "fe/$1" }
+
+    { "src": "/static/(.*)", "dest": "fe/static/$1" },
+    { "src": "/img/(.*)", "dest": "fe/img/$1" },
+    { "src": "/favicon.ico", "dest": "fe/favicon.ico" },
+    { "src": "/asset-manifest.json", "dest": "fe/asset-manifest.json" },
+    { "src": "/manifest.json", "dest": "fe/manifest.json" },
+    { "src": "/service-worker.js", "headers": { "cache-control": "s-maxage=0" }, "dest": "fe/service-worker.js" },
+    { "src": "/precache-manifest.(.*)", "dest": "fe/precache-manifest.$1" },
+    {
+      "src": "/(.*)",
+      "dest": "/fe/index.html"
+    }
   ]
 }

@@ -18,7 +18,7 @@ interface Props {
 }
 
 const StyledSeason = styled('div')`
-  border: 1px solid ${props => Color((props.theme as Theme).palette.text.primary).alpha(0.4).string()};
+  border: 1px solid ${props => Color((props.theme as Theme).palette.text.primary).alpha(0.3).string()};
   padding: 2rem 1rem;
   margin-bottom: 0.5rem;
   display: flex;
