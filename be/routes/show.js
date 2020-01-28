@@ -104,89 +104,88 @@ router.get('/', jwt, async function(req, res) {
   }
 });
 
-router.get('/sync', jwt, async function(req, res) {
-  const { user } = req;
-
-  async function fetch(params = {}) {
-    let response;
-    try {
-      response = await traktApi.get('sync/history/episodes', {
-        headers: {
-          Authorization: `Bearer ${req.user.trakt.access_token}`
-        },
-        params
-      });
-    } catch (e) {
-      if (e) {
-        res.send(400, e);
-        return;
-      }
+async function processHistories(data, user) {
+  let newDataCount = 0;
+  for (const history of data) {
+    const longTraktId = Long(`${history.id}`);
+    let [errH, foundHistory] = await to(
+      HistoryModel.find({ traktId: longTraktId, entityType: 2 })
+    );
+    if (errH) console.error('errH', errH);
+    if (foundHistory && foundHistory.length > 0) {
+      continue;
     }
 
-    if (response.data) {
-      const { data } = response;
-      if (!data.length) res.response(204);
+    const { episode, show, id, ...restHistory } = history;
+    let [errM, foundShow] = await to(
+      ShowModel.find({ 'ids.trakt': show.ids.trakt })
+    );
+    if (errM) console.error('errM', errM);
+    let showId = foundShow.length && foundShow[0]._id;
+    let dbShow = foundShow[0];
 
-      let newDataCount = 0;
-      for (const history of data) {
-        const longTraktId = Long(`${history.id}`);
-        let [errH, foundHistory] = await to(
-          HistoryModel.find({ traktId: longTraktId, entityType: 2 })
-        );
-        if (errH) console.error('errH', errH);
-        if (foundHistory && foundHistory.length > 0) {
-          continue;
-        }
+    if (!foundShow.length) {
+      let newShow = new ShowModel({ ...show });
+      let [errSM, savedShow] = await to(newShow.save());
+      if (errSM) console.error('errSM', errSM);
+      showId = savedShow._id;
+      dbShow = savedShow;
+    }
 
-        const { episode, show, id, ...restHistory } = history;
-        let [errM, foundShow] = await to(
-          ShowModel.find({ 'ids.trakt': show.ids.trakt })
-        );
-        if (errM) console.error('errM', errM);
-        let showId = foundShow.length && foundShow[0]._id;
-        let dbShow = foundShow[0];
-
-        if (!foundShow.length) {
-          let newShow = new ShowModel({ ...show });
-          let [errSM, savedShow] = await to(newShow.save());
-          if (errSM) console.error('errSM', errSM);
-          showId = savedShow._id;
-          dbShow = savedShow;
-        }
-
-        let dbEpisode = dbShow.episodes.find(function(dbEpisode) {
-          if (dbEpisode.ids.trakt === episode.ids.trakt) {
-            return episode;
-          }
-        });
-
-        if (!dbEpisode) {
-          let episodeId = ObjectId();
-          dbEpisode = {
-            _id: episodeId,
-            ...episode
-          };
-          dbShow.episodes.push(dbEpisode);
-          const [errUS, updatedShow] = await to(dbShow.save());
-          if (errUS) console.error('errUS', errUS);
-        }
-
-        const newHistory = new HistoryModel({
-          ...restHistory,
-          entity: showId,
-          entityType: 2,
-          traktId: longTraktId,
-          episode: dbEpisode._id,
-          user: user._id
-        });
-
-        let [errNH, savedHistory] = await to(newHistory.save());
-        if (errNH) console.error('errNH', errNH);
-        newDataCount += 1;
+    let dbEpisode = dbShow.episodes.find(function(dbEpisode) {
+      if (dbEpisode.ids.trakt === episode.ids.trakt) {
+        return episode;
       }
-      return newDataCount;
+    });
+
+    if (!dbEpisode) {
+      let episodeId = ObjectId();
+      dbEpisode = {
+        _id: episodeId,
+        ...episode
+      };
+      dbShow.episodes.push(dbEpisode);
+      const [errUS, updatedShow] = await to(dbShow.save());
+      if (errUS) console.error('errUS', errUS);
+    }
+
+    const newHistory = new HistoryModel({
+      ...restHistory,
+      entity: showId,
+      entityType: 2,
+      traktId: longTraktId,
+      episode: dbEpisode._id,
+      user: user._id
+    });
+
+    let [errNH, savedHistory] = await to(newHistory.save());
+    if (errNH) console.error('errNH', errNH);
+    newDataCount += 1;
+  }
+  return newDataCount;
+}
+
+async function fetch(params = {}, access_token, res) {
+  let response;
+  try {
+    response = await traktApi.get('sync/history/episodes', {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      },
+      params
+    });
+
+    return response.data;
+  } catch (e) {
+    if (e) {
+      console.log('error '.e);
+      res.status(400).send(e);
     }
   }
+}
+
+router.get('/sync', jwt, async function(req, res) {
+  const { user } = req;
 
   const [errorH, historyFind] = await to(
     HistoryModel.findOne({ user: user._id, entityType: 2 }).sort({
@@ -221,7 +220,12 @@ router.get('/sync', jwt, async function(req, res) {
 
       let newData = [];
       for (let page = pages; page > 0; page--) {
-        newData.push(await fetch({ ...params, limit: itemsPerPage, page }));
+        let data = await fetch(
+          { ...params, limit: itemsPerPage, page },
+          req.user.trakt.access_token,
+          res
+        );
+        newData.push(await processHistories(data, user));
       }
 
       Promise.all(newData).then(function(values) {
@@ -301,7 +305,7 @@ router.get('/:id', jwt, async function(req, res) {
 		orderedSeasons[seasonNumber] = seasons[seasonNumber]
   })*/
 
-	showObj.seasons = seasons;
+  showObj.seasons = seasons;
 
   if (errShow) {
     res.send(400, errShow);
