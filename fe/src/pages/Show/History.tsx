@@ -6,11 +6,12 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import { observer } from 'mobx-react';
 import HistoryTable from 'components/Tables/Shows';
+import LoadingDialog from 'components/LoadingDialog/LoadingDialog';
 
 const History: React.FC = () => {
   const { userStore, showsStore } = useStores();
   const history = useHistory();
-  const { syncData, tableRef } = showsStore;
+  const { syncWithApi, syncing, tableRef } = showsStore;
 
   useEffect(() => {
     if (!userStore.user) {
@@ -22,22 +23,16 @@ const History: React.FC = () => {
   return (
     <>
       <Box textAlign="right">
+        <LoadingDialog open={syncing} />
         <Button
           color="primary"
           variant="outlined"
-          onClick={() => {
-            syncData().then(response => {
+          onClick={async () => {
+            const response = await syncWithApi();
 
-              if (
-                response &&
-                typeof response === 'object' &&
-                'data' in response &&
-                tableRef &&
-                tableRef.current
-              ) {
-                tableRef.current.onQueryChange();
-              }
-            });
+            if (response?.data && tableRef?.current) {
+              tableRef.current.onQueryChange();
+            }
           }}
         >
           Sync now
