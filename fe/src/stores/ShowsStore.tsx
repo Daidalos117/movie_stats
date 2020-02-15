@@ -86,7 +86,7 @@ class ShowsStore extends ApiStore {
     const { data: newDataCount } = resp;
 
     if (newDataCount) {
-      const itemsPerPage = process.env.REACT_APP_ITEMS_PER_PAGE_SYNC || 20;
+      const itemsPerPage = parseInt( process.env.REACT_APP_ITEMS_PER_PAGE_SYNC ) || 20;
 
       const pages = Math.ceil(newDataCount / itemsPerPage);
 
