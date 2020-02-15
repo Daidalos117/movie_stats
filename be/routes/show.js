@@ -8,6 +8,7 @@ const to = require('await-to-js').default;
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const Long = require('mongodb').Long;
+const moment = require('moment');
 
 router.get('/', jwt, async function(req, res) {
   const { user } = req;
@@ -186,17 +187,12 @@ async function fetch(params = {}, access_token, res) {
 
 router.get('/sync', jwt, async function(req, res) {
   const { user } = req;
-
-  const [errorH, historyFind] = await to(
-    HistoryModel.findOne({ user: user._id, entityType: 2 }).sort({
-      watched_at: -1
-    })
-  );
+	const startAt = getHistoryStartAt(user);
 
   const params = {};
 
-  if (historyFind) {
-    params.start_at = historyFind.watched_at;
+  if (startAt) {
+    params.start_at = startAt;
   }
 
   //  initial fetch
@@ -238,6 +234,77 @@ router.get('/sync', jwt, async function(req, res) {
       });
     });
 });
+
+router.get('/syncItemsCount', jwt, async function(req, res) {
+	const { user } = req;
+
+  const response = await getNewItemsCount(user);
+	const { headers } = response;
+	const countIntems =
+		headers['X-Pagination-Item-Count'] ||
+		headers['x-pagination-item-count'];
+
+	return res.send(countIntems).status(200);
+})
+
+/**
+ * Gets the last history start at
+ * @returns {Promise<*>}
+ */
+async function getHistoryStartAt(user) {
+	const [errorH, historyFind] = await to(
+		HistoryModel.findOne({ user: user._id, entityType: 2 }).sort({
+			watched_at: -1
+		})
+	);
+	if (historyFind) {
+	  const watchedAt = moment(historyFind.watched_at).add(1, 's').toISOString();
+		return watchedAt;
+	} else {
+	  return false;
+  }
+}
+
+async function getNewItemsCount(user) {
+  const startAt = await getHistoryStartAt(user);
+
+  const params = {};
+  if (startAt) {
+    params.start_at = startAt;
+  }
+
+  return traktApi.get('sync/history/episodes', {
+    headers: {
+      Authorization: `Bearer ${user.trakt.access_token}`
+    },
+    params: {
+      limit: 1,
+      ...params
+    }
+  });
+}
+
+router.get('/pagedSync', jwt, async function(req, res) {
+  const { params, query } = req;
+  const { user } = req;
+	const { page, itemsPerPage } = query;
+	const apiParams = {};
+	const startAt = await getHistoryStartAt(user);
+
+	if (startAt) {
+		apiParams.start_at = startAt;
+	}
+
+	const data = await fetch(
+		{ ...apiParams, limit: itemsPerPage, page },
+		req.user.trakt.access_token,
+		res
+	);
+
+	const newData = await processHistories(data, user);
+	return res.send(newData.toString()).status(200)
+});
+
 
 router.get('/:id', jwt, async function(req, res) {
   const { params } = req;

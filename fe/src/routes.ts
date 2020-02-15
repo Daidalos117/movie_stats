@@ -1,17 +1,25 @@
 const baseApiUrl = process.env.REACT_APP_BE_URL || 'https://localhost:8080/api';
 const baseFeUrl = process.env.REACT_APP_FE_URL || 'https://localhost:3000';
 
+
+
+const sync = {
+  sync: 'sync',
+  syncItemsCount: 'syncItemsCount',
+  pagedSync: 'pagedSync',
+}
+
 const API = {
   auth: {
     login: 'auth'
   },
   movie: {
     index: 'movie',
-    sync: 'sync'
+    ...sync
   },
   show: {
     index: 'show',
-    sync: 'sync'
+    ...sync
   },
   history: {
     index: 'history',
@@ -28,7 +36,7 @@ const FE = {
   },
   show: {
     index: 'show',
-    detail: 'detail'
+    detail: 'detail',
   },
   auth: {
     callback: '/loginCallback'

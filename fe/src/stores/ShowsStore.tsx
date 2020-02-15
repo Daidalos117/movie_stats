@@ -1,10 +1,11 @@
 // src/stores/theme-store.tsx
-import {computed, observable, runInAction} from 'mobx';
+import { observable, runInAction, action } from 'mobx';
 import { ApiStore } from './ApiStore';
 import { RefObject } from 'react';
 import { Query } from 'material-table';
-import {stores} from "./store";
-import {API} from "../routes";
+import { stores } from './store';
+import { API } from '../routes';
+import api from '../api/backend';
 
 interface Ids {
   trakt: number;
@@ -55,6 +56,8 @@ class ShowsStore extends ApiStore {
 
   @observable openedEpisodes: number[] = [];
 
+  @observable syncing: boolean = false;
+
   set openSeason(season: OpenSeason) {
     this._openSeason = season;
     this.openedEpisodes = [];
@@ -73,15 +76,55 @@ class ShowsStore extends ApiStore {
       episode => episode === episodeNumber
     ));
 
+  @action
+  syncWithApi = async () => {
+    this.syncing = true;
+    const resp = await api.get<number>(
+      `${API.show.index}/${API.show.syncItemsCount}`,
+      {}
+    );
+    const { data: newDataCount } = resp;
+
+    if (newDataCount) {
+      const itemsPerPage = process.env.REACT_APP_ITEMS_PER_PAGE_SYNC || 20;
+
+      const pages = Math.ceil(newDataCount / itemsPerPage);
+
+      let newData = [];
+      for (let page = pages; page > 0; page--) {
+        try {
+          let data = await api.get<number>(
+            `${API.show.index}/${API.show.pagedSync}`,
+            {
+              params: {
+                page,
+                itemsPerPage
+              }
+            }
+          );
+          console.log(data);
+        } catch (e) {
+          console.error('error syncing shows', e);
+          page++;
+        }
+      }
+    }
+
+    this.syncing = false;
+    return resp;
+  };
+
   syncData = async () => {
     const { apiStore } = stores;
 
-    const response = await apiStore.fetchData<Histories>(`${this.endpoint}/${API.show.sync}`);
+    const response = await apiStore.fetchData<Histories>(
+      `${this.endpoint}/${API.show.sync}`
+    );
 
     return runInAction(() => {
       return response;
     });
-  }
+  };
 }
 
 export { ShowsStore };
