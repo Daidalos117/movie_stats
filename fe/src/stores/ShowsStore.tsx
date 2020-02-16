@@ -6,6 +6,7 @@ import { Query } from 'material-table';
 import { stores } from './store';
 import { API } from '../routes';
 import api from '../api/backend';
+import {sleep} from "../helpers/sleep";
 
 interface Ids {
   trakt: number;
@@ -92,6 +93,7 @@ class ShowsStore extends ApiStore {
 
       let newData = [];
       for (let page = pages; page > 0; page--) {
+
         try {
           let data = await api.get<number>(
             `${API.show.index}/${API.show.pagedSync}`,
@@ -102,7 +104,7 @@ class ShowsStore extends ApiStore {
               }
             }
           );
-          console.log(data);
+          await sleep(1000);
         } catch (e) {
           console.error('error syncing shows', e);
           page++;
